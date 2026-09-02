@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>EasyToll - Online Toll Payment System</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f4f7f9;
+}
+
+header{
+    background:#1565c0;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+nav{
+    background:#0d47a1;
+    padding:12px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:12px;
+    font-weight:bold;
+}
+
+section{
+    width:85%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 5px gray;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    box-sizing:border-box;
+}
+
+button{
+    background:#1565c0;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+.card{
+    border:1px solid #ddd;
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+.qr{
+    width:150px;
+    height:150px;
+    background:#eee;
+    border:3px dashed #1565c0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:15px auto;
+    font-weight:bold;
+}
+
+footer{
+    background:#1565c0;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🚗 EasyToll</h1>
+
+<p>Pay Toll in Advance and Travel Without Waiting</p>
+
+</header>
+
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#register">Register</a>
+
+<a href="#login">Login</a>
+
+<a href="#wallet">eWallet</a>
+
+<a href="#toll">Toll Pass</a>
+
+<a href="#history">History</a>
+
+<a href="#admin">Admin</a>
+
+<a href="#gate">Toll Gate</a>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section id="home">
+
+<h2>Welcome to EasyToll</h2>
+
+<p>
+EasyToll allows users to pay toll charges in advance,
+buy toll eTickets and use QR-based toll passes.
+</p>
+
+<h3>Benefits</h3>
+
+<ul>
+
+<li>Pay toll in advance</li>
+
+<li>No long queues at toll gates</li>
+
+<li>Digital Toll Pass</li>
+
+<li>QR Code Verification</li>
+
+<li>eWallet Payment</li>
+
+<li>Transaction History</li>
+
+</ul>
+
+</section>
+
+
+<!-- USER REGISTRATION -->
+
+<section id="register">
+
+<h2>User Registration</h2>
+
+<input
+type="text"
+placeholder="Full Name"
+>
+
+<input
+type="email"
+placeholder="Email"
+>
+
+<input
+type="text"
+placeholder="Mobile Number"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Registration Successful')">
+
+Register
+
+</button>
+
+</section>
+
+
+<!-- USER LOGIN -->
+
+<section id="login">
+
+<h2>User Login</h2>
+
+<input
+type="text"
+placeholder="Username"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Login Successful')">
+
+Login
+
+</button>
+
+<button onclick="alert('Logged Out Successfully')">
+
+Logout
+
+</button>
+
+</section>
+
+
+<!-- VEHICLE -->
+
+<section>
+
+<h2>Vehicle Details</h2>
+
+<input
+type="text"
+placeholder="Vehicle Number"
+>
+
+<select>
+
+<option>Car</option>
+
+<option>Bike</option>
+
+<option>Bus</option>
+
+<option>Truck</option>
+
+</select>
+
+<input
+type="text"
+placeholder="Vehicle Model"
+>
+
+<button onclick="alert('Vehicle Details Updated')">
+
+Add / Update Vehicle
+
+</button>
+
+</section>
+
+
+<!-- EWALLET -->
+
+<section id="wallet">
+
+<h2>eWallet</h2>
+
+<h3>Current Balance: ₹1000</h3>
+
+<input
+type="number"
+id="money"
+placeholder="Enter Amount"
+>
+
+<button onclick="addMoney()">
+
+Add Money
+
+</button>
+
+<button onclick="alert('Wallet Balance Checked')">
+
+Check Balance
+
+</button>
+
+</section>
+
+
+<!-- TOLL DETAILS -->
+
+<section>
+
+<h2>Toll Gate Details</h2>
+
+<div class="card">
+
+<h3>Chennai Toll Gate</h3>
+
+<p>Location: Chennai - Bangalore Highway</p>
+
+<p>Toll Fee: ₹100</p>
+
+<button onclick="buyTicket('Chennai Toll Gate',100)">
+
+Buy eTicket
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>Krishnagiri Toll Gate</h3>
+
+<p>Location: Chennai - Bangalore Highway</p>
+
+<p>Toll Fee: ₹80</p>
+
+<button onclick="buyTicket('Krishnagiri Toll Gate',80)">
+
+Buy eTicket
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>Vellore Toll Gate</h3>
+
+<p>Location: Chennai - Bangalore Highway</p>
+
+<p>Toll Fee: ₹70</p>
+
+<button onclick="buyTicket('Vellore Toll Gate',70)">
+
+Buy eTicket
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- TOLL PASS -->
+
+<section id="toll">
+
+<h2>Apply New Toll Pass</h2>
+
+<input
+type="text"
+placeholder="Vehicle Number"
+>
+
+<select>
+
+<option>Monthly Pass</option>
+
+<option>Quarterly Pass</option>
+
+<option>Yearly Pass</option>
+
+</select>
+
+<button onclick="applyPass()">
+
+Apply Toll Pass
+
+</button>
+
+
+<h2>Renew Toll Pass</h2>
+
+<input
+type="text"
+placeholder="Toll Pass ID"
+>
+
+<button onclick="alert('Toll Pass Renewed Successfully')">
+
+Renew Pass
+
+</button>
+
+
+<h2>Approve / Apply Toll Pass</h2>
+
+<button onclick="alert('Toll Pass Application Submitted')">
+
+Submit Application
+
+</button>
+
+</section>
+
+
+<!-- QR CODE -->
+
+<section>
+
+<h2>My Toll Pass QR Code</h2>
+
+<p>
+Toll Pass ID: <b>TP1001</b>
+</p>
+
+<div class="qr">
+
+QR CODE
+
+</div>
+
+<button onclick="generateQR()">
+
+Generate QR Code
+
+</button>
+
+<button onclick="alert('QR Code Downloaded')">
+
+Download QR
+
+</button>
+
+</section>
+
+
+<!-- TRANSACTION HISTORY -->
+
+<section id="history">
+
+<h2>Transaction History</h2>
+
+<table>
+
+<tr>
+
+<th>Transaction ID</th>
+
+<th>Toll Gate</th>
+
+<th>Amount</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>TX1001</td>
+
+<td>Chennai Toll Gate</td>
+
+<td>₹100</td>
+
+<td>Paid</td>
+
+</tr>
+
+<tr>
+
+<td>TX1002</td>
+
+<td>Vellore Toll Gate</td>
+
+<td>₹70</td>
+
+<td>Paid</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section>
+
+<h2>Toll Payment</h2>
+
+<input
+type="text"
+placeholder="Toll Ticket ID"
+>
+
+<select>
+
+<option>eWallet</option>
+
+<option>UPI</option>
+
+<option>Credit Card</option>
+
+<option>Debit Card</option>
+
+</select>
+
+<button onclick="alert('Toll Payment Successful')">
+
+Pay Toll
+
+</button>
+
+</section>
+
+
+<!-- AUTOMATIC PAYMENT -->
+
+<section>
+
+<h2>Automatic Payment</h2>
+
+<p>
+Enable automatic payment for frequently used routes.
+</p>
+
+<select>
+
+<option>Enable Automatic Payment</option>
+
+<option>Disable Automatic Payment</option>
+
+</select>
+
+<button onclick="alert('Automatic Payment Setting Updated')">
+
+Save Setting
+
+</button>
+
+</section>
+
+
+<!-- NOTIFICATIONS -->
+
+<section>
+
+<h2>Toll Notifications</h2>
+
+<ul>
+
+<li>Upcoming toll payment: ₹100</li>
+
+<li>Your monthly toll pass expires soon.</li>
+
+<li>Wallet balance is ₹1000.</li>
+
+<li>New toll gate available on your route.</li>
+
+</ul>
+
+<button onclick="alert('Notification Reminder Set')">
+
+Set Reminder
+
+</button>
+
+</section>
+
+
+<!-- ADMIN -->
+
+<section id="admin">
+
+<h2>Admin Login</h2>
+
+<input
+type="text"
+placeholder="Admin Username"
+>
+
+<input
+type="password"
+placeholder="Admin Password"
+>
+
+<button onclick="alert('Admin Login Successful')">
+
+Login
+
+</button>
+
+
+<h2>Manage Users & Toll Pass</h2>
+
+<button onclick="alert('User Details Updated')">
+
+Manage User
+
+</button>
+
+<button onclick="alert('Toll Pass Details Updated')">
+
+Manage Toll Pass
+
+</button>
+
+
+<h2>Manage Toll Login</h2>
+
+<input
+type="text"
+placeholder="Toll Gate Username"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Toll Gate Login Created')">
+
+Create Toll Login
+
+</button>
+
+
+<h2>Approve Toll Pass</h2>
+
+<input
+type="text"
+placeholder="Toll Pass ID"
+>
+
+<button onclick="alert('Toll Pass Approved')">
+
+Approve
+
+</button>
+
+
+<h2>Generate QR Code</h2>
+
+<input
+type="text"
+placeholder="Toll Pass ID"
+>
+
+<button onclick="generateQR()">
+
+Generate QR
+
+</button>
+
+
+<h2>Create Toll Details</h2>
+
+<input
+type="text"
+placeholder="Toll Gate Name"
+>
+
+<input
+type="text"
+placeholder="Toll Gate Location"
+>
+
+<input
+type="number"
+placeholder="Toll Amount"
+>
+
+<button onclick="alert('Toll Details Created')">
+
+Create Toll
+
+</button>
+
+</section>
+
+
+<!-- TOLL GATE USER -->
+
+<section id="gate">
+
+<h2>Toll Gate User Login</h2>
+
+<input
+type="text"
+placeholder="Toll Gate Username"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Toll Gate Login Successful')">
+
+Login
+
+</button>
+
+
+<h2>Scan QR Code</h2>
+
+<input
+type="text"
+id="qrInput"
+placeholder="Enter / Scan QR Code"
+>
+
+<button onclick="scanQR()">
+
+Scan QR
+
+</button>
+
+
+<h2>Verify Toll Pass ID</h2>
+
+<input
+type="text"
+placeholder="Toll Pass ID"
+>
+
+<button onclick="alert('Toll Pass Verified Successfully')">
+
+Verify Pass
+
+</button>
+
+
+<h2>Verify Toll Ticket</h2>
+
+<input
+type="text"
+placeholder="Toll Ticket ID"
+>
+
+<button onclick="alert('Toll Ticket Verified Successfully')">
+
+Verify Ticket
+
+</button>
+
+
+<h2>Update Toll Location</h2>
+
+<input
+type="text"
+placeholder="Current Toll Location"
+>
+
+<button onclick="alert('Toll Location Updated')">
+
+Update Location
+
+</button>
+
+</section>
+
+
+<!-- SUMMARY -->
+
+<section>
+
+<h2>Payment Summary</h2>
+
+<table>
+
+<tr>
+
+<th>Details</th>
+
+<th>Amount</th>
+
+</tr>
+
+<tr>
+
+<td>Total Toll Paid</td>
+
+<td>₹170</td>
+
+</tr>
+
+<tr>
+
+<td>Wallet Balance</td>
+
+<td>₹1000</td>
+
+</tr>
+
+<tr>
+
+<td>Pending Toll</td>
+
+<td>₹0</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 EasyToll Online Toll Payment System
+</p>
+
+</footer>
+
+
+<script>
+
+let balance=1000;
+
+
+function addMoney(){
+
+let amount=
+Number(document.getElementById("money").value);
+
+if(amount>0){
+
+balance=balance+amount;
+
+alert(
+"Money Added Successfully\nNew Balance: ₹"+balance
+);
+
+}
+
+else{
+
+alert("Enter a valid amount");
+
+}
+
+}
+
+
+function buyTicket(gate,amount){
+
+if(balance>=amount){
+
+balance=balance-amount;
+
+alert(
+"eTicket Purchased Successfully\n"+
+"Toll Gate: "+gate+
+"\nAmount: ₹"+amount+
+"\nRemaining Balance: ₹"+balance
+);
+
+}
+
+else{
+
+alert("Insufficient eWallet Balance");
+
+}
+
+}
+
+
+function applyPass(){
+
+alert(
+"Toll Pass Application Submitted Successfully"
+);
+
+}
+
+
+function generateQR(){
+
+alert(
+"QR Code Generated Successfully for Toll Pass TP1001"
+);
+
+}
+
+
+function scanQR(){
+
+let qr=
+document.getElementById("qrInput").value;
+
+if(qr!=""){
+
+alert(
+"QR Code Scanned Successfully\nToll Pass Verified"
+);
+
+}
+
+else{
+
+alert("Please scan or enter a QR Code");
+
+}
+
+}
+
+</script>
+
+
+</body>
+
+</html>

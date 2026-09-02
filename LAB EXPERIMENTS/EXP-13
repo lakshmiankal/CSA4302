@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>BlossomGifts - Online Flowers & Gifts</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#fff5f7;
+}
+
+header{
+    background:#e91e63;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+nav{
+    background:#ad1457;
+    padding:12px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:12px;
+    font-weight:bold;
+}
+
+section{
+    width:85%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 5px gray;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    box-sizing:border-box;
+}
+
+button{
+    background:#e91e63;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ad1457;
+}
+
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.product{
+    width:220px;
+    border:1px solid #ddd;
+    padding:15px;
+    text-align:center;
+    border-radius:8px;
+}
+
+.product img{
+    width:180px;
+    height:150px;
+    object-fit:cover;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+footer{
+    background:#e91e63;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🌸 BlossomGifts 🌸</h1>
+
+<p>Flowers and Gifts for Every Occasion</p>
+
+</header>
+
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#register">Register</a>
+
+<a href="#login">Login</a>
+
+<a href="#products">Products</a>
+
+<a href="#cart">Cart</a>
+
+<a href="#orders">Orders</a>
+
+<a href="#admin">Admin</a>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section id="home">
+
+<h2>Welcome to BlossomGifts</h2>
+
+<p>
+Send beautiful flowers and thoughtful gifts to your loved ones.
+</p>
+
+
+<h3>Categories</h3>
+
+<ul>
+
+<li>Flowers</li>
+
+<li>Gift Baskets</li>
+
+<li>Personalized Gifts</li>
+
+<li>Birthday Gifts</li>
+
+<li>Anniversary Gifts</li>
+
+<li>Wedding Gifts</li>
+
+</ul>
+
+
+<h3>Subcategories</h3>
+
+<ul>
+
+<li>Roses</li>
+
+<li>Lilies</li>
+
+<li>Bouquets</li>
+
+<li>Chocolate Baskets</li>
+
+<li>Photo Frames</li>
+
+<li>Personalized Mugs</li>
+
+</ul>
+
+
+<h3>Price Range</h3>
+
+<ul>
+
+<li>Below ₹500</li>
+
+<li>₹500 - ₹1000</li>
+
+<li>₹1000 - ₹2000</li>
+
+<li>Above ₹2000</li>
+
+</ul>
+
+</section>
+
+
+<!-- REGISTER -->
+
+<section id="register">
+
+<h2>User Registration</h2>
+
+<input
+type="text"
+placeholder="Full Name"
+>
+
+<input
+type="email"
+placeholder="Email"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Registration Successful')">
+
+Register
+
+</button>
+
+</section>
+
+
+<!-- LOGIN -->
+
+<section id="login">
+
+<h2>User Login</h2>
+
+<input
+type="text"
+placeholder="Username"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Login Successful')">
+
+Login
+
+</button>
+
+<button onclick="alert('Logged Out Successfully')">
+
+Logout
+
+</button>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section>
+
+<h2>Search Flowers & Gifts</h2>
+
+<input
+type="text"
+id="search"
+placeholder="Search flowers or gifts..."
+>
+
+<button onclick="searchProduct()">
+
+Search
+
+</button>
+
+<p id="searchResult"></p>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+<h2>Product Catalogue</h2>
+
+<div class="products">
+
+
+<div class="product">
+
+<img
+src="https://via.placeholder.com/180"
+alt="Rose Bouquet"
+>
+
+<h3>Rose Bouquet</h3>
+
+<p>Beautiful Red Roses</p>
+
+<p><b>₹700</b></p>
+
+<p>Available</p>
+
+<button
+onclick="addCart('Rose Bouquet',700)"
+>
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="product">
+
+<img
+src="https://via.placeholder.com/180"
+alt="Chocolate Basket"
+>
+
+<h3>Chocolate Basket</h3>
+
+<p>Premium Chocolate Gift Basket</p>
+
+<p><b>₹1,200</b></p>
+
+<p>Available</p>
+
+<button
+onclick="addCart('Chocolate Basket',1200)"
+>
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="product">
+
+<img
+src="https://via.placeholder.com/180"
+alt="Birthday Gift"
+>
+
+<h3>Birthday Gift</h3>
+
+<p>Special Birthday Gift Set</p>
+
+<p><b>₹900</b></p>
+
+<p>Available</p>
+
+<button
+onclick="addCart('Birthday Gift',900)"
+>
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="product">
+
+<img
+src="https://via.placeholder.com/180"
+alt="Personalized Mug"
+>
+
+<h3>Personalized Mug</h3>
+
+<p>Custom Photo Mug</p>
+
+<p><b>₹500</b></p>
+
+<p>Available</p>
+
+<button
+onclick="addCart('Personalized Mug',500)"
+>
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- PRODUCT DETAILS -->
+
+<section>
+
+<h2>Product Details</h2>
+
+<h3>Rose Bouquet</h3>
+
+<p>
+Fresh red roses arranged beautifully with decorative wrapping.
+</p>
+
+<p><b>Price:</b> ₹700</p>
+
+<p><b>Availability:</b> In Stock</p>
+
+<h3>Delivery Options</h3>
+
+<p>Same Day Delivery Available</p>
+
+<p>Future Date Delivery Available</p>
+
+</section>
+
+
+<!-- CART -->
+
+<section id="cart">
+
+<h2>Shopping Cart</h2>
+
+<p id="cartItems">
+
+Cart is empty.
+
+</p>
+
+<p id="total">
+
+Total: ₹0
+
+</p>
+
+<button onclick="editCart()">
+
+Edit Cart
+
+</button>
+
+<button onclick="removeCart()">
+
+Remove Item
+
+</button>
+
+<button onclick="checkout()">
+
+Checkout
+
+</button>
+
+</section>
+
+
+<!-- DELIVERY -->
+
+<section>
+
+<h2>Delivery Details</h2>
+
+<input
+type="text"
+placeholder="Receiver Name"
+>
+
+<input
+type="text"
+placeholder="Delivery Address"
+>
+
+<input
+type="date"
+>
+
+<input
+type="time"
+>
+
+<textarea
+placeholder="Special Message"
+></textarea>
+
+<button onclick="alert('Delivery Details Saved')">
+
+Save Delivery Details
+
+</button>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section>
+
+<h2>Payment</h2>
+
+<select>
+
+<option>Credit Card</option>
+
+<option>Debit Card</option>
+
+<option>UPI</option>
+
+<option>Net Banking</option>
+
+</select>
+
+<input
+type="text"
+placeholder="Payment Details"
+>
+
+<button onclick="alert('Payment Successful')">
+
+Pay Now
+
+</button>
+
+</section>
+
+
+<!-- ORDERS -->
+
+<section id="orders">
+
+<h2>My Orders</h2>
+
+<table>
+
+<tr>
+
+<th>Order ID</th>
+
+<th>Product</th>
+
+<th>Delivery Date</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>BG1001</td>
+
+<td>Rose Bouquet</td>
+
+<td>20-08-2026</td>
+
+<td>Out for Delivery</td>
+
+</tr>
+
+<tr>
+
+<td>BG1002</td>
+
+<td>Chocolate Basket</td>
+
+<td>25-08-2026</td>
+
+<td>Confirmed</td>
+
+</tr>
+
+</table>
+
+
+<button onclick="alert('Order Status: Out for Delivery')">
+
+Track Order
+
+</button>
+
+</section>
+
+
+<!-- PROMOTIONS -->
+
+<section>
+
+<h2>Special Offers</h2>
+
+<ul>
+
+<li>10% OFF on Birthday Gifts</li>
+
+<li>15% OFF on Anniversary Gifts</li>
+
+<li>20% OFF for Loyal Customers</li>
+
+<li>Free Delivery on Orders Above ₹1500</li>
+
+</ul>
+
+</section>
+
+
+<!-- ADMIN -->
+
+<section id="admin">
+
+<h2>Admin Login</h2>
+
+<input
+type="text"
+placeholder="Admin Username"
+>
+
+<input
+type="password"
+placeholder="Admin Password"
+>
+
+<button onclick="alert('Admin Login Successful')">
+
+Login
+
+</button>
+
+
+<h2>Manage Products</h2>
+
+<input
+type="text"
+placeholder="Product Name"
+>
+
+<input
+type="number"
+placeholder="Product Price"
+>
+
+<textarea
+placeholder="Product Description"
+></textarea>
+
+<input type="file">
+
+
+<button onclick="alert('Product Added')">
+
+Add Product
+
+</button>
+
+
+<button onclick="alert('Product Updated')">
+
+Update Product
+
+</button>
+
+
+<button onclick="alert('Product Deleted')">
+
+Delete Product
+
+</button>
+
+
+<h2>Customer Information</h2>
+
+<table>
+
+<tr>
+
+<th>Customer Name</th>
+
+<th>Email</th>
+
+<th>Product Ordered</th>
+
+</tr>
+
+<tr>
+
+<td>Rahul</td>
+
+<td>rahul@gmail.com</td>
+
+<td>Rose Bouquet</td>
+
+</tr>
+
+<tr>
+
+<td>Priya</td>
+
+<td>priya@gmail.com</td>
+
+<td>Chocolate Basket</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- FEEDBACK -->
+
+<section>
+
+<h2>Customer Feedback</h2>
+
+<textarea
+placeholder="Write your feedback"
+></textarea>
+
+<button
+onclick="alert('Feedback Submitted')"
+>
+
+Submit Feedback
+
+</button>
+
+</section>
+
+
+<footer>
+
+<p>
+
+© 2026 BlossomGifts Online Flower & Gift Store
+
+</p>
+
+</footer>
+
+
+<script>
+
+let cart=[];
+
+let total=0;
+
+
+function addCart(product,price){
+
+cart.push(product);
+
+total=total+price;
+
+document.getElementById("cartItems").innerHTML=
+cart.join("<br>");
+
+document.getElementById("total").innerHTML=
+"Total: ₹"+total;
+
+alert(product+" added to cart");
+
+}
+
+
+function removeCart(){
+
+if(cart.length>0){
+
+cart.pop();
+
+document.getElementById("cartItems").innerHTML=
+cart.join("<br>");
+
+alert("Item removed from cart");
+
+}
+
+else{
+
+alert("Cart is empty");
+
+}
+
+}
+
+
+function editCart(){
+
+alert("Cart editing option opened");
+
+}
+
+
+function checkout(){
+
+if(cart.length>0){
+
+alert("Order placed successfully");
+
+}
+
+else{
+
+alert("Please add products to cart");
+
+}
+
+}
+
+
+function searchProduct(){
+
+let value=
+document.getElementById("search").value.toLowerCase();
+
+let products=[
+
+"rose bouquet",
+
+"chocolate basket",
+
+"birthday gift",
+
+"personalized mug"
+
+];
+
+let found=products.find(
+product=>product.includes(value)
+);
+
+if(found){
+
+document.getElementById("searchResult").innerHTML=
+"<b>Product Found:</b> "+found;
+
+}
+
+else{
+
+document.getElementById("searchResult").innerHTML=
+"<b>Product Not Found</b>";
+
+}
+
+}
+
+</script>
+
+
+</body>
+
+</html>

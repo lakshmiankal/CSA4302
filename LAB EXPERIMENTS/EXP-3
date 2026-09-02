@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Bus Ticket Booking System</title>
+
+<style>
+body{
+font-family:Arial;
+margin:0;
+background:#f2f2f2;
+}
+
+header{
+background:#0d6efd;
+color:white;
+padding:15px;
+text-align:center;
+}
+
+nav{
+background:#084298;
+padding:10px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:15px;
+font-weight:bold;
+}
+
+section{
+background:white;
+width:80%;
+margin:20px auto;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 5px gray;
+}
+
+input,select,textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+}
+
+button{
+background:#0d6efd;
+color:white;
+padding:10px 20px;
+border:none;
+cursor:pointer;
+}
+
+button:hover{
+background:#084298;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+table,th,td{
+border:1px solid black;
+}
+
+th,td{
+padding:10px;
+text-align:center;
+}
+
+footer{
+background:#0d6efd;
+color:white;
+text-align:center;
+padding:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Online Bus Ticket Booking System</h1>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#register">Register</a>
+<a href="#login">Login</a>
+<a href="#search">Search Bus</a>
+<a href="#booking">Booking</a>
+<a href="#history">History</a>
+<a href="#admin">Admin</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+<h2>Welcome</h2>
+<p>Search buses, book tickets, cancel bookings and manage your travel easily.</p>
+</section>
+
+<section id="register">
+<h2>User Registration</h2>
+
+<input type="text" placeholder="Full Name">
+<input type="email" placeholder="Email">
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Registration Successful')">Register</button>
+
+</section>
+
+<section id="login">
+
+<h2>Login</h2>
+
+<input type="text" placeholder="Username">
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Login Successful')">Login</button>
+
+</section>
+
+<section id="search">
+
+<h2>Search Bus</h2>
+
+<input type="text" id="searchBus" placeholder="Enter Bus Type">
+
+<button onclick="searchBus()">Search</button>
+
+<p id="result"></p>
+
+<table>
+
+<tr>
+<th>Bus</th>
+<th>Route</th>
+<th>Time</th>
+<th>Seats</th>
+</tr>
+
+<tr>
+<td>Volvo</td>
+<td>Chennai - Bangalore</td>
+<td>08:00 AM</td>
+<td>20</td>
+</tr>
+
+<tr>
+<td>Sleeper</td>
+<td>Hyderabad - Chennai</td>
+<td>09:30 PM</td>
+<td>15</td>
+</tr>
+
+<tr>
+<td>AC Coach</td>
+<td>Bangalore - Coimbatore</td>
+<td>06:00 PM</td>
+<td>12</td>
+</tr>
+
+</table>
+
+</section>
+
+<section id="booking">
+
+<h2>Book Ticket</h2>
+
+<input type="text" placeholder="Passenger Name">
+
+<select>
+<option>Volvo</option>
+<option>Sleeper</option>
+<option>AC Coach</option>
+</select>
+
+<input type="date">
+
+<input type="number" placeholder="Seat Number">
+
+<button onclick="alert('Ticket Booked Successfully')">
+Book Ticket
+</button>
+
+</section>
+
+<section>
+
+<h2>Payment</h2>
+
+<input type="text" placeholder="Card Number">
+
+<input type="text" placeholder="Card Holder Name">
+
+<button onclick="alert('Payment Successful')">
+Pay Now
+</button>
+
+</section>
+
+<section id="history">
+
+<h2>Booking History</h2>
+
+<table>
+
+<tr>
+<th>Bus</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Volvo</td>
+<td>15-08-2026</td>
+<td>Confirmed</td>
+</tr>
+
+</table>
+
+<button onclick="alert('Booking Cancelled')">
+Cancel Ticket
+</button>
+
+</section>
+
+<section>
+
+<h2>Comments</h2>
+
+<textarea placeholder="Write your comments"></textarea>
+
+<button onclick="alert('Comment Posted')">
+Post Comment
+</button>
+
+</section>
+
+<section id="admin">
+
+<h2>Admin Login</h2>
+
+<input type="text" placeholder="Admin Username">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Admin Login Successful')">
+Login
+</button>
+
+<h2>Bus Management</h2>
+
+<input type="text" placeholder="Bus Category">
+
+<input type="text" placeholder="Bus Type">
+
+<input type="number" placeholder="Available Seats">
+
+<button>Add / Update Bus</button>
+
+<h2>Generate Report</h2>
+
+<button onclick="alert('Report Generated')">
+Generate Report
+</button>
+
+</section>
+
+<section>
+
+<h2>About Bus Categories</h2>
+
+<ul>
+<li>Volvo</li>
+<li>Sleeper Coach</li>
+<li>AC Coach</li>
+<li>Non-AC Coach</li>
+</ul>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<input type="text" placeholder="Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button onclick="alert('Message Sent Successfully')">
+Send
+</button>
+
+</section>
+
+<footer>
+
+<p>© 2026 Online Bus Ticket Booking System</p>
+
+</footer>
+
+<script>
+
+let buses=[
+"Volvo",
+"Sleeper",
+"AC Coach",
+"Non-AC Coach"
+];
+
+function searchBus(){
+
+let value=document.getElementById("searchBus").value.toLowerCase();
+
+let found=buses.find(bus=>bus.toLowerCase().includes(value));
+
+if(found){
+document.getElementById("result").innerHTML="Bus Found : "+found;
+}
+else{
+document.getElementById("result").innerHTML="Bus Not Found";
+}
+
+}
+
+</script>
+
+</body>
+</html>

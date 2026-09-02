@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>ReNewMarket - Second Hand Marketplace</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f2f7f2;
+}
+
+header{
+    background:#388e3c;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+nav{
+    background:#1b5e20;
+    padding:12px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:12px;
+    font-weight:bold;
+}
+
+section{
+    width:85%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 5px gray;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    box-sizing:border-box;
+}
+
+button{
+    background:#388e3c;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1b5e20;
+}
+
+.items{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.item{
+    width:220px;
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+}
+
+.item img{
+    width:180px;
+    height:150px;
+    object-fit:cover;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+footer{
+    background:#388e3c;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>♻ ReNewMarket</h1>
+
+<p>Buy and Sell Pre-Loved Products</p>
+
+</header>
+
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#register">Register</a>
+
+<a href="#login">Login</a>
+
+<a href="#products">Products</a>
+
+<a href="#sell">Sell Item</a>
+
+<a href="#orders">Orders</a>
+
+<a href="#admin">Admin</a>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section id="home">
+
+<h2>Welcome to ReNewMarket</h2>
+
+<p>
+Buy and sell quality second-hand products while promoting sustainability.
+</p>
+
+
+<h3>Categories</h3>
+
+<ul>
+
+<li>Electronics</li>
+
+<li>Furniture</li>
+
+<li>Clothing</li>
+
+<li>Books</li>
+
+<li>Collectibles</li>
+
+<li>Vehicles</li>
+
+</ul>
+
+</section>
+
+
+<!-- USER REGISTRATION -->
+
+<section id="register">
+
+<h2>User Registration</h2>
+
+<input
+type="text"
+placeholder="Full Name"
+>
+
+<input
+type="email"
+placeholder="Email"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Registration Successful')">
+
+Register
+
+</button>
+
+</section>
+
+
+<!-- LOGIN -->
+
+<section id="login">
+
+<h2>User Login</h2>
+
+<input
+type="text"
+placeholder="Username"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Login Successful')">
+
+Login
+
+</button>
+
+<button onclick="alert('Logged Out')">
+
+Logout
+
+</button>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section>
+
+<h2>Search Second-Hand Products</h2>
+
+<input
+type="text"
+id="search"
+placeholder="Search product..."
+>
+
+<select id="category">
+
+<option>All Categories</option>
+
+<option>Electronics</option>
+
+<option>Furniture</option>
+
+<option>Clothing</option>
+
+<option>Books</option>
+
+<option>Collectibles</option>
+
+</select>
+
+<button onclick="searchItem()">
+
+Search
+
+</button>
+
+<p id="searchResult"></p>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+<h2>Available Products</h2>
+
+<div class="items">
+
+
+<div class="item">
+
+<img
+src="https://via.placeholder.com/180"
+alt="Used Laptop"
+>
+
+<h3>Used Laptop</h3>
+
+<p>Good condition laptop</p>
+
+<p><b>₹25,000</b></p>
+
+<p>Electronics</p>
+
+<button onclick="buyItem('Used Laptop')">
+
+Buy
+
+</button>
+
+<button onclick="addFavorite('Used Laptop')">
+
+Favorite
+
+</button>
+
+</div>
+
+
+<div class="item">
+
+<img
+src="https://via.placeholder.com/180"
+alt="Used Sofa"
+>
+
+<h3>Used Sofa</h3>
+
+<p>Comfortable 3-seater sofa</p>
+
+<p><b>₹8,000</b></p>
+
+<p>Furniture</p>
+
+<button onclick="buyItem('Used Sofa')">
+
+Buy
+
+</button>
+
+<button onclick="addFavorite('Used Sofa')">
+
+Favorite
+
+</button>
+
+</div>
+
+
+<div class="item">
+
+<img
+src="https://via.placeholder.com/180"
+alt="Used Jacket"
+>
+
+<h3>Used Jacket</h3>
+
+<p>Good quality winter jacket</p>
+
+<p><b>₹1,500</b></p>
+
+<p>Clothing</p>
+
+<button onclick="buyItem('Used Jacket')">
+
+Buy
+
+</button>
+
+<button onclick="addFavorite('Used Jacket')">
+
+Favorite
+
+</button>
+
+</div>
+
+
+<div class="item">
+
+<img
+src="https://via.placeholder.com/180"
+alt="Old Books"
+>
+
+<h3>Old Books</h3>
+
+<p>Engineering book collection</p>
+
+<p><b>₹800</b></p>
+
+<p>Books</p>
+
+<button onclick="buyItem('Old Books')">
+
+Buy
+
+</button>
+
+<button onclick="addFavorite('Old Books')">
+
+Favorite
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- PRODUCT DETAILS -->
+
+<section>
+
+<h2>Product Details</h2>
+
+<h3>Used Laptop</h3>
+
+<p>
+Second-hand laptop in good working condition.
+Suitable for students and office work.
+</p>
+
+<p><b>Price:</b> ₹25,000</p>
+
+<p><b>Condition:</b> Good</p>
+
+<p><b>Location:</b> Chennai</p>
+
+<button onclick="alert('Seller Contact Details Opened')">
+
+Contact Seller
+
+</button>
+
+
+<h3>Negotiate Price</h3>
+
+<input
+type="number"
+placeholder="Enter Your Offer"
+>
+
+<button onclick="alert('Offer Sent to Seller')">
+
+Send Offer
+
+</button>
+
+</section>
+
+
+<!-- SELL ITEM -->
+
+<section id="sell">
+
+<h2>Create Product Listing</h2>
+
+<input
+type="text"
+placeholder="Product Name"
+>
+
+<select>
+
+<option>Electronics</option>
+
+<option>Furniture</option>
+
+<option>Clothing</option>
+
+<option>Books</option>
+
+<option>Collectibles</option>
+
+</select>
+
+<textarea
+placeholder="Product Description"
+></textarea>
+
+<input
+type="number"
+placeholder="Price"
+>
+
+<input
+type="text"
+placeholder="Location"
+>
+
+<input type="file">
+
+<button onclick="alert('Product Listed Successfully')">
+
+Create Listing
+
+</button>
+
+</section>
+
+
+<!-- FAVORITES -->
+
+<section>
+
+<h2>My Favorite Items</h2>
+
+<p id="favorites">
+
+No favorite items.
+
+</p>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section>
+
+<h2>Secure Payment</h2>
+
+<input
+type="text"
+placeholder="Product Name"
+>
+
+<select>
+
+<option>UPI</option>
+
+<option>Credit Card</option>
+
+<option>Debit Card</option>
+
+<option>Net Banking</option>
+
+</select>
+
+<button onclick="alert('Payment Successful')">
+
+Pay Now
+
+</button>
+
+</section>
+
+
+<!-- DELIVERY -->
+
+<section>
+
+<h2>Pickup / Delivery</h2>
+
+<select>
+
+<option>Seller Pickup</option>
+
+<option>Home Delivery</option>
+
+</select>
+
+<input
+type="text"
+placeholder="Delivery Address"
+>
+
+<button onclick="alert('Pickup / Delivery Scheduled')">
+
+Schedule
+
+</button>
+
+</section>
+
+
+<!-- ORDERS -->
+
+<section id="orders">
+
+<h2>My Transactions</h2>
+
+<table>
+
+<tr>
+
+<th>Order ID</th>
+
+<th>Product</th>
+
+<th>Price</th>
+
+<th>Logistics Status</th>
+
+</tr>
+
+<tr>
+
+<td>RN1001</td>
+
+<td>Used Laptop</td>
+
+<td>₹25,000</td>
+
+<td>Shipped</td>
+
+</tr>
+
+<tr>
+
+<td>RN1002</td>
+
+<td>Old Books</td>
+
+<td>₹800</td>
+
+<td>Received</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- FEEDBACK -->
+
+<section>
+
+<h2>Feedback</h2>
+
+<textarea
+placeholder="Write your feedback"
+></textarea>
+
+<button onclick="alert('Feedback Submitted')">
+
+Submit Feedback
+
+</button>
+
+</section>
+
+
+<!-- ADMIN -->
+
+<section id="admin">
+
+<h2>Administrator Login</h2>
+
+<input
+type="text"
+placeholder="Admin Username"
+>
+
+<input
+type="password"
+placeholder="Admin Password"
+>
+
+<button onclick="alert('Admin Login Successful')">
+
+Login
+
+</button>
+
+
+<h2>User Management</h2>
+
+<button onclick="alert('User Edited')">
+
+Edit User
+
+</button>
+
+<button onclick="alert('User Deleted')">
+
+Delete User
+
+</button>
+
+
+<h2>Category Management</h2>
+
+<input
+type="text"
+placeholder="New Category"
+>
+
+<button onclick="alert('Category Added')">
+
+Add Category
+
+</button>
+
+<button onclick="alert('Category Deleted')">
+
+Delete Category
+
+</button>
+
+
+<h2>Commodity Management</h2>
+
+<input
+type="text"
+placeholder="Commodity Name"
+>
+
+<button onclick="alert('Commodity Updated')">
+
+Edit Commodity
+
+</button>
+
+<button onclick="alert('Commodity Deleted')">
+
+Delete Commodity
+
+</button>
+
+
+<h2>Order Management</h2>
+
+<select>
+
+<option>Shipped</option>
+
+<option>Received</option>
+
+</select>
+
+<button onclick="alert('Logistics Status Updated')">
+
+Change Status
+
+</button>
+
+<button onclick="alert('Order Deleted')">
+
+Delete Order
+
+</button>
+
+
+<h2>Customer Information</h2>
+
+<table>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Product</th>
+
+</tr>
+
+<tr>
+
+<td>Rahul</td>
+
+<td>rahul@gmail.com</td>
+
+<td>Used Laptop</td>
+
+</tr>
+
+<tr>
+
+<td>Priya</td>
+
+<td>priya@gmail.com</td>
+
+<td>Used Sofa</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 ReNewMarket - Sustainable Second-Hand Marketplace
+</p>
+
+</footer>
+
+
+<script>
+
+let products=[
+
+"used laptop",
+"used sofa",
+"used jacket",
+"old books"
+
+];
+
+
+let favorites=[];
+
+
+function searchItem(){
+
+let value=
+document.getElementById("search").value.toLowerCase();
+
+let found=products.find(
+product=>product.includes(value)
+);
+
+if(found){
+
+document.getElementById("searchResult").innerHTML=
+"<b>Product Found:</b> "+found;
+
+}
+
+else{
+
+document.getElementById("searchResult").innerHTML=
+"<b>Product Not Found</b>";
+
+}
+
+}
+
+
+function buyItem(item){
+
+alert(item+" selected for purchase");
+
+}
+
+
+function addFavorite(item){
+
+favorites.push(item);
+
+document.getElementById("favorites").innerHTML=
+favorites.join("<br>");
+
+alert(item+" added to favorites");
+
+}
+
+</script>
+
+
+</body>
+
+</html>

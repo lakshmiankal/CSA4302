@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Vetcure - Online Animal Healthcare</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f4f8f4;
+}
+
+header{
+    background:#2e7d32;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+nav{
+    background:#1b5e20;
+    padding:12px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+    font-weight:bold;
+}
+
+section{
+    width:85%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 5px gray;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    box-sizing:border-box;
+}
+
+textarea{
+    height:100px;
+}
+
+button{
+    background:#2e7d32;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1b5e20;
+}
+
+.card{
+    border:1px solid #ddd;
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+}
+
+.doctors{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.doctor{
+    width:220px;
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+}
+
+.doctor img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+.status{
+    font-weight:bold;
+}
+
+footer{
+    background:#2e7d32;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🐾 Vetcure</h1>
+
+<p>Online Animal Healthcare and Doctor Consultation</p>
+
+</header>
+
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#register">Register</a>
+
+<a href="#login">Login</a>
+
+<a href="#complaint">Complaint</a>
+
+<a href="#doctor">Doctors</a>
+
+<a href="#payment">Payment</a>
+
+<a href="#report">Report</a>
+
+<a href="#profile">Profile</a>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section id="home">
+
+<h2>Welcome to Vetcure</h2>
+
+<p>
+Vetcure allows farmers and pet owners to communicate
+with veterinary doctors online and receive solutions
+for animal health problems.
+</p>
+
+<h3>Services</h3>
+
+<ul>
+
+<li>Online Veterinary Consultation</li>
+
+<li>Send Animal Symptoms</li>
+
+<li>Upload Images and Videos</li>
+
+<li>Send Audio and Text Complaints</li>
+
+<li>Doctor Solutions</li>
+
+<li>Animal Disease Information</li>
+
+<li>Online Payment</li>
+
+<li>Disease Analysis Reports</li>
+
+</ul>
+
+</section>
+
+
+<!-- USER REGISTER -->
+
+<section id="register">
+
+<h2>Farmer / User Registration</h2>
+
+<input
+type="text"
+placeholder="Full Name"
+>
+
+<input
+type="email"
+placeholder="Email"
+>
+
+<input
+type="text"
+placeholder="Mobile Number"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<input
+type="text"
+placeholder="Village / Location"
+>
+
+<button onclick="alert('User Registered Successfully')">
+
+Register
+
+</button>
+
+</section>
+
+
+<!-- USER LOGIN -->
+
+<section id="login">
+
+<h2>User Login</h2>
+
+<input
+type="text"
+placeholder="Username / Email"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('User Login Successful')">
+
+Login
+
+</button>
+
+<button onclick="alert('Logged Out Successfully')">
+
+Logout
+
+</button>
+
+</section>
+
+
+<!-- SUBSCRIPTION -->
+
+<section>
+
+<h2>Doctor Subscription</h2>
+
+<select id="clinic">
+
+<option value="govt">
+
+Government CVH - Free
+
+</option>
+
+<option value="private">
+
+Private Veterinary Doctor - ₹500
+
+</option>
+
+</select>
+
+<button onclick="subscribeDoctor()">
+
+Subscribe
+
+</button>
+
+<p id="subscription"></p>
+
+</section>
+
+
+<!-- POST COMPLAINT -->
+
+<section id="complaint">
+
+<h2>Post Animal Health Complaint</h2>
+
+<input
+type="text"
+id="animal"
+placeholder="Animal Name / Type"
+>
+
+<input
+type="text"
+placeholder="Animal Age"
+>
+
+<select>
+
+<option>Cow</option>
+
+<option>Buffalo</option>
+
+<option>Goat</option>
+
+<option>Sheep</option>
+
+<option>Dog</option>
+
+<option>Cat</option>
+
+<option>Other</option>
+
+</select>
+
+<textarea
+id="symptoms"
+placeholder="Describe signs and symptoms"
+></textarea>
+
+
+<h3>Upload Evidence</h3>
+
+<label>Video:</label>
+
+<input
+type="file"
+accept="video/*"
+>
+
+
+<label>Audio:</label>
+
+<input
+type="file"
+accept="audio/*"
+>
+
+
+<label>Animal Images:</label>
+
+<input
+type="file"
+accept="image/*"
+multiple
+>
+
+
+<label>Other Document:</label>
+
+<input type="file">
+
+
+<button onclick="postComplaint()">
+
+Submit Complaint
+
+</button>
+
+<p id="complaintMessage"></p>
+
+</section>
+
+
+<!-- MY COMPLAINT STATUS -->
+
+<section>
+
+<h2>My Complaint Status</h2>
+
+<table>
+
+<tr>
+
+<th>Complaint ID</th>
+
+<th>Animal</th>
+
+<th>Problem</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>VC1001</td>
+
+<td>Cow</td>
+
+<td>Fever</td>
+
+<td class="status">Doctor Reviewing</td>
+
+</tr>
+
+<tr>
+
+<td>VC1002</td>
+
+<td>Goat</td>
+
+<td>Loss of Appetite</td>
+
+<td class="status">Solution Provided</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- DOCTOR DETAILS -->
+
+<section id="doctor">
+
+<h2>Available Veterinary Doctors</h2>
+
+<div class="doctors">
+
+
+<div class="doctor">
+
+<img
+src="https://via.placeholder.com/100"
+alt="Doctor"
+>
+
+<h3>Dr. Arun Kumar</h3>
+
+<p>Veterinary Specialist</p>
+
+<p>Government CVH</p>
+
+<p>Subscription: Free</p>
+
+<button onclick="alert('Doctor Profile Opened')">
+
+View Doctor
+
+</button>
+
+</div>
+
+
+<div class="doctor">
+
+<img
+src="https://via.placeholder.com/100"
+alt="Doctor"
+>
+
+<h3>Dr. Priya Sharma</h3>
+
+<p>Animal Disease Specialist</p>
+
+<p>Private Clinic</p>
+
+<p>Consultation: ₹500</p>
+
+<button onclick="alert('Doctor Profile Opened')">
+
+View Doctor
+
+</button>
+
+</div>
+
+
+<div class="doctor">
+
+<img
+src="https://via.placeholder.com/100"
+alt="Doctor"
+>
+
+<h3>Dr. Ravi Kumar</h3>
+
+<p>Pet Health Specialist</p>
+
+<p>Government CVH</p>
+
+<p>Subscription: Free</p>
+
+<button onclick="alert('Doctor Profile Opened')">
+
+View Doctor
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section id="payment">
+
+<h2>Make Payment</h2>
+
+<input
+type="text"
+placeholder="Doctor Name"
+>
+
+<input
+type="number"
+id="fee"
+placeholder="Payment Amount"
+>
+
+<select>
+
+<option>Bank Transfer</option>
+
+<option>EasyPaisa</option>
+
+</select>
+
+<h3>Doctor Bank Details</h3>
+
+<p>
+
+Bank: National Bank<br>
+
+Account Name: Dr. Priya Sharma<br>
+
+Account Number: 1234567890
+
+</p>
+
+
+<h3>EasyPaisa Details</h3>
+
+<p>
+
+EasyPaisa Number: 0300-1234567
+
+</p>
+
+<button onclick="makePayment()">
+
+Make Payment
+
+</button>
+
+<p id="paymentMessage"></p>
+
+</section>
+
+
+<!-- VETCURE DETAILS -->
+
+<section>
+
+<h2>Vetcure Details</h2>
+
+<div class="card">
+
+<h3>Animal Fever</h3>
+
+<p>
+Common signs include high temperature,
+weakness and loss of appetite.
+</p>
+
+<p><b>Basic Cure:</b> Consult a veterinary doctor.</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Skin Infection</h3>
+
+<p>
+Common signs include itching, hair loss
+and skin irritation.
+</p>
+
+<p><b>Basic Cure:</b> Veterinary examination required.</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Digestive Problem</h3>
+
+<p>
+Symptoms may include vomiting,
+diarrhea and loss of appetite.
+</p>
+
+<p><b>Basic Cure:</b> Contact a veterinary doctor.</p>
+
+</div>
+
+</section>
+
+
+<!-- NEWS -->
+
+<section>
+
+<h2>Latest Veterinary News</h2>
+
+<ul>
+
+<li>Free veterinary health camp this Sunday.</li>
+
+<li>New animal vaccination program available.</li>
+
+<li>Farmers can consult government veterinary doctors online.</li>
+
+<li>Animal disease awareness program started.</li>
+
+</ul>
+
+</section>
+
+
+<!-- REPORT -->
+
+<section id="report">
+
+<h2>Animal Disease Report</h2>
+
+<p>
+Based on recorded complaint data, the system
+can analyze commonly reported animal diseases.
+</p>
+
+<table>
+
+<tr>
+
+<th>Disease</th>
+
+<th>Area</th>
+
+<th>Number of Cases</th>
+
+</tr>
+
+<tr>
+
+<td>Fever</td>
+
+<td>Chennai</td>
+
+<td>120</td>
+
+</tr>
+
+<tr>
+
+<td>Skin Infection</td>
+
+<td>Madurai</td>
+
+<td>80</td>
+
+</tr>
+
+<tr>
+
+<td>Digestive Problem</td>
+
+<td>Coimbatore</td>
+
+<td>65</td>
+
+</tr>
+
+</table>
+
+<button onclick="generateReport()">
+
+Generate Report
+
+</button>
+
+<p id="reportMessage"></p>
+
+</section>
+
+
+<!-- USER PROFILE -->
+
+<section id="profile">
+
+<h2>My Profile</h2>
+
+<input
+type="text"
+value="Farmer User"
+>
+
+<input
+type="email"
+value="farmer@gmail.com"
+>
+
+<input
+type="text"
+value="9876543210"
+>
+
+<input
+type="text"
+value="Chennai"
+>
+
+<button onclick="alert('Profile Updated Successfully')">
+
+Update Profile
+
+</button>
+
+</section>
+
+
+<!-- FEEDBACK -->
+
+<section>
+
+<h2>Post Feedback</h2>
+
+<select>
+
+<option>★★★★★ Excellent</option>
+
+<option>★★★★ Good</option>
+
+<option>★★★ Average</option>
+
+<option>★★ Poor</option>
+
+<option>★ Very Poor</option>
+
+</select>
+
+<textarea
+placeholder="Write your feedback"
+></textarea>
+
+<button onclick="alert('Feedback Submitted Successfully')">
+
+Submit Feedback
+
+</button>
+
+</section>
+
+
+<!-- DOCTOR DASHBOARD -->
+
+<section>
+
+<h2>Doctor Dashboard</h2>
+
+
+<h3>Doctor Registration</h3>
+
+<input
+type="text"
+placeholder="Doctor Name"
+>
+
+<input
+type="email"
+placeholder="Email"
+>
+
+<input
+type="text"
+placeholder="Qualification"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Doctor Registered Successfully')">
+
+Register Doctor
+
+</button>
+
+
+<h3>Doctor Login</h3>
+
+<input
+type="text"
+placeholder="Doctor Username"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Doctor Login Successful')">
+
+Login
+
+</button>
+
+
+<h3>View Complaints</h3>
+
+<div class="card">
+
+<p><b>Complaint ID:</b> VC1001</p>
+
+<p><b>Animal:</b> Cow</p>
+
+<p><b>Symptoms:</b> Fever and weakness</p>
+
+<p><b>Location:</b> Chennai</p>
+
+<button onclick="alert('Complaint Details Opened')">
+
+View Complaint
+
+</button>
+
+</div>
+
+
+<h3>Post Solution</h3>
+
+<input
+type="text"
+placeholder="Complaint ID"
+>
+
+<textarea
+placeholder="Enter medical advice / solution"
+></textarea>
+
+<input
+type="file"
+accept="image/*"
+>
+
+<button onclick="alert('Solution Posted Successfully')">
+
+Post Solution
+
+</button>
+
+
+<h3>Manage Cure</h3>
+
+<input
+type="text"
+placeholder="Disease Name"
+>
+
+<textarea
+placeholder="Cure / Treatment Information"
+></textarea>
+
+<button onclick="alert('Cure Information Updated')">
+
+Add / Update Cure
+
+</button>
+
+
+<h3>Manage News</h3>
+
+<input
+type="text"
+placeholder="News Title"
+>
+
+<textarea
+placeholder="News Content"
+></textarea>
+
+<button onclick="alert('News Posted Successfully')">
+
+Post News
+
+</button>
+
+
+<h3>View User Details</h3>
+
+<table>
+
+<tr>
+
+<th>User</th>
+
+<th>Animal</th>
+
+<th>Location</th>
+
+<th>Complaint</th>
+
+</tr>
+
+<tr>
+
+<td>Farmer User</td>
+
+<td>Cow</td>
+
+<td>Chennai</td>
+
+<td>Fever</td>
+
+</tr>
+
+<tr>
+
+<td>Ravi</td>
+
+<td>Goat</td>
+
+<td>Madurai</td>
+
+<td>Skin Infection</td>
+
+</tr>
+
+</table>
+
+
+<h3>View Payment Details</h3>
+
+<table>
+
+<tr>
+
+<th>Payment ID</th>
+
+<th>User</th>
+
+<th>Amount</th>
+
+<th>Method</th>
+
+</tr>
+
+<tr>
+
+<td>PAY1001</td>
+
+<td>Farmer User</td>
+
+<td>₹500</td>
+
+<td>Bank Transfer</td>
+
+</tr>
+
+</table>
+
+
+<h3>Feedback Details</h3>
+
+<p>
+User Feedback: Excellent consultation service.
+</p>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 Vetcure - Online Animal Healthcare System
+</p>
+
+</footer>
+
+
+<script>
+
+
+function subscribeDoctor(){
+
+let clinic=
+document.getElementById("clinic").value;
+
+if(clinic=="govt"){
+
+document.getElementById("subscription").innerHTML=
+"<b>Government CVH Subscription Successful - Free</b>";
+
+}
+
+else{
+
+document.getElementById("subscription").innerHTML=
+"<b>Private Doctor Subscription Fee: ₹500</b>";
+
+}
+
+}
+
+
+function postComplaint(){
+
+let animal=
+document.getElementById("animal").value;
+
+let symptoms=
+document.getElementById("symptoms").value;
+
+if(animal=="" || symptoms==""){
+
+alert(
+"Please enter animal name and symptoms"
+);
+
+return;
+
+}
+
+document.getElementById("complaintMessage").innerHTML=
+"<b>Complaint Submitted Successfully!</b><br>"+
+"Complaint ID: VC1003";
+
+}
+
+
+function makePayment(){
+
+let fee=
+document.getElementById("fee").value;
+
+if(fee>0){
+
+document.getElementById("paymentMessage").innerHTML=
+"<b>Payment Successful!</b><br>"+
+"Amount Paid: ₹"+fee;
+
+}
+
+else{
+
+alert("Enter a valid payment amount");
+
+}
+
+}
+
+
+function generateReport(){
+
+document.getElementById("reportMessage").innerHTML=
+"<b>Disease Report Generated Successfully.</b>";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

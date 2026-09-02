@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>InsureEasy Insurance Management System</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f2f7f9;
+}
+
+header{
+    background:#00796B;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+nav{
+    background:#004D40;
+    padding:12px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+
+section{
+    width:85%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 5px gray;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    box-sizing:border-box;
+}
+
+button{
+    background:#00796B;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#004D40;
+}
+
+.policy{
+    border:1px solid #ddd;
+    padding:15px;
+    margin:10px 0;
+    border-radius:6px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+footer{
+    background:#00796B;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>InsureEasy</h1>
+
+<p>Simple and Secure Insurance Management</p>
+
+</header>
+
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#admin">Admin</a>
+
+<a href="#agent">Agent</a>
+
+<a href="#user">User</a>
+
+<a href="#policies">Policies</a>
+
+<a href="#claims">Claims</a>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section id="home">
+
+<h2>Welcome to InsureEasy</h2>
+
+<p>
+Compare, manage and purchase insurance policies easily.
+</p>
+
+<h3>Insurance Types</h3>
+
+<ul>
+
+<li>Health Insurance</li>
+
+<li>Vehicle Insurance</li>
+
+<li>Home Insurance</li>
+
+<li>Life Insurance</li>
+
+</ul>
+
+</section>
+
+
+<!-- ADMIN -->
+
+<section id="admin">
+
+<h2>Admin Login</h2>
+
+<input
+type="text"
+placeholder="Admin Username"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Admin Login Successful')">
+
+Login
+
+</button>
+
+
+<h2>Approve Agent Login</h2>
+
+<button onclick="alert('Agent Approved Successfully')">
+
+Approve Agent
+
+</button>
+
+
+<h2>View All Agent Details</h2>
+
+<table>
+
+<tr>
+
+<th>Agent Name</th>
+
+<th>Email</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>Ramesh</td>
+
+<td>ramesh@gmail.com</td>
+
+<td>Approved</td>
+
+</tr>
+
+<tr>
+
+<td>Priya</td>
+
+<td>priya@gmail.com</td>
+
+<td>Pending</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- AGENT -->
+
+<section id="agent">
+
+<h2>Agent Registration</h2>
+
+<input
+type="text"
+placeholder="Agent Name"
+>
+
+<input
+type="email"
+placeholder="Email"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Agent Registered Successfully')">
+
+Register
+
+</button>
+
+
+<h2>Agent Login</h2>
+
+<input
+type="text"
+placeholder="Agent Username"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Agent Login Successful')">
+
+Login
+
+</button>
+
+
+<h2>Create Customer</h2>
+
+<input
+type="text"
+placeholder="Customer Name"
+>
+
+<input
+type="email"
+placeholder="Customer Email"
+>
+
+<input
+type="text"
+placeholder="Phone Number"
+>
+
+<button onclick="alert('Customer Created Successfully')">
+
+Create Customer
+
+</button>
+
+
+<h2>Manage Customer Details</h2>
+
+<textarea
+placeholder="Update Customer Information"
+></textarea>
+
+<button onclick="alert('Customer Details Updated')">
+
+Update Customer
+
+</button>
+
+
+<h2>Manage Policy Details</h2>
+
+<select>
+
+<option>Health Insurance</option>
+
+<option>Vehicle Insurance</option>
+
+<option>Home Insurance</option>
+
+<option>Life Insurance</option>
+
+</select>
+
+<input
+type="text"
+placeholder="Policy Number"
+>
+
+<input
+type="number"
+placeholder="Premium Amount"
+>
+
+<button onclick="alert('Policy Details Updated')">
+
+Update Policy
+
+</button>
+
+
+<h2>Send SMS Alert</h2>
+
+<input
+type="text"
+placeholder="Customer Phone Number"
+>
+
+<textarea
+placeholder="SMS Message"
+></textarea>
+
+<button onclick="alert('SMS Alert Sent Successfully')">
+
+Send SMS Alert
+
+</button>
+
+</section>
+
+
+<!-- USER -->
+
+<section id="user">
+
+<h2>User Registration</h2>
+
+<input
+type="text"
+placeholder="Full Name"
+>
+
+<input
+type="email"
+placeholder="Email"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('User Registered Successfully')">
+
+Register
+
+</button>
+
+
+<h2>User Login</h2>
+
+<input
+type="text"
+placeholder="Username"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('User Login Successful')">
+
+Login
+
+</button>
+
+
+<h2>Manage My Policy</h2>
+
+<input
+type="text"
+placeholder="Policy Number"
+>
+
+<button onclick="alert('Policy Details Loaded')">
+
+View Policy
+
+</button>
+
+</section>
+
+
+<!-- POLICIES -->
+
+<section id="policies">
+
+<h2>Insurance Policies</h2>
+
+
+<div class="policy">
+
+<h3>Health Insurance</h3>
+
+<p>
+Medical coverage for hospitalization and healthcare expenses.
+</p>
+
+<p><b>Premium:</b> ₹10,000 / Year</p>
+
+<button onclick="alert('Health Policy Selected')">
+
+Select Policy
+
+</button>
+
+</div>
+
+
+<div class="policy">
+
+<h3>Vehicle Insurance</h3>
+
+<p>
+Insurance coverage for cars and two-wheelers.
+</p>
+
+<p><b>Premium:</b> ₹5,000 / Year</p>
+
+<button onclick="alert('Vehicle Policy Selected')">
+
+Select Policy
+
+</button>
+
+</div>
+
+
+<div class="policy">
+
+<h3>Home Insurance</h3>
+
+<p>
+Protection for your home and valuable property.
+</p>
+
+<p><b>Premium:</b> ₹7,000 / Year</p>
+
+<button onclick="alert('Home Policy Selected')">
+
+Select Policy
+
+</button>
+
+</div>
+
+
+<h2>Policy Comparison</h2>
+
+<table>
+
+<tr>
+
+<th>Policy</th>
+
+<th>Coverage</th>
+
+<th>Premium</th>
+
+</tr>
+
+<tr>
+
+<td>Health</td>
+
+<td>₹5 Lakhs</td>
+
+<td>₹10,000</td>
+
+</tr>
+
+<tr>
+
+<td>Vehicle</td>
+
+<td>₹3 Lakhs</td>
+
+<td>₹5,000</td>
+
+</tr>
+
+<tr>
+
+<td>Home</td>
+
+<td>₹10 Lakhs</td>
+
+<td>₹7,000</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section>
+
+<h2>Premium Payment</h2>
+
+<input
+type="text"
+placeholder="Policy Number"
+>
+
+<input
+type="number"
+placeholder="Premium Amount"
+>
+
+<select>
+
+<option>UPI</option>
+
+<option>Credit Card</option>
+
+<option>Debit Card</option>
+
+<option>Net Banking</option>
+
+</select>
+
+<button onclick="alert('Premium Payment Successful')">
+
+Pay Premium
+
+</button>
+
+</section>
+
+
+<!-- CLAIM -->
+
+<section id="claims">
+
+<h2>Insurance Claim</h2>
+
+<input
+type="text"
+placeholder="Policy Number"
+>
+
+<textarea
+placeholder="Enter Claim Details"
+></textarea>
+
+<input type="file">
+
+<button onclick="alert('Claim Submitted Successfully')">
+
+Submit Claim
+
+</button>
+
+</section>
+
+
+<!-- USER POLICY -->
+
+<section>
+
+<h2>My Policy Details</h2>
+
+<table>
+
+<tr>
+
+<th>Policy Number</th>
+
+<th>Policy Type</th>
+
+<th>Premium</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>INS1001</td>
+
+<td>Health Insurance</td>
+
+<td>₹10,000</td>
+
+<td>Active</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- SMS -->
+
+<section>
+
+<h2>SMS Alerts</h2>
+
+<p>
+Your insurance premium is due soon.
+Please make the payment before the due date.
+</p>
+
+<button onclick="alert('SMS Reminder Sent')">
+
+Send Reminder
+
+</button>
+
+</section>
+
+
+<!-- MANAGER -->
+
+<section>
+
+<h2>Manager Information</h2>
+
+<table>
+
+<tr>
+
+<th>Manager</th>
+
+<th>Department</th>
+
+<th>Contact</th>
+
+</tr>
+
+<tr>
+
+<td>Arun Kumar</td>
+
+<td>Insurance Management</td>
+
+<td>9876543210</td>
+
+</tr>
+
+<tr>
+
+<td>Priya Sharma</td>
+
+<td>Customer Support</td>
+
+<td>9876501234</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<footer>
+
+<p>
+
+© 2026 InsureEasy Insurance Management System
+
+</p>
+
+</footer>
+
+
+<script>
+
+let policies = [
+
+"Health Insurance",
+
+"Vehicle Insurance",
+
+"Home Insurance",
+
+"Life Insurance"
+
+];
+
+function searchPolicy(){
+
+let value =
+document.getElementById("policySearch").value.toLowerCase();
+
+let found =
+policies.find(
+policy => policy.toLowerCase().includes(value)
+);
+
+if(found){
+
+document.getElementById("policyResult").innerHTML =
+"<b>Policy Found:</b> " + found;
+
+}
+else{
+
+document.getElementById("policyResult").innerHTML =
+"<b>Policy Not Found</b>";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

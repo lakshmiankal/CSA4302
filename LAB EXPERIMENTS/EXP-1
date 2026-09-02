@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Management System</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f2f2f2;
+}
+
+header{
+    background:#0066cc;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+nav{
+    background:#004080;
+    padding:10px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+
+section{
+    width:80%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 5px gray;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
+
+button{
+    background:#0066cc;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#004080;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+footer{
+    background:#0066cc;
+    color:white;
+    text-align:center;
+    padding:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Library Management System</h1>
+<p>Simple Library Website</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#register">Register</a>
+<a href="#login">Login</a>
+<a href="#books">Books</a>
+<a href="#history">History</a>
+<a href="#fine">Fine</a>
+<a href="#materials">Materials</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+<h2>Welcome</h2>
+<p>This Library Management System allows students and librarians to search books, manage borrowing history, calculate fines, and download study materials.</p>
+</section>
+
+<section id="register">
+<h2>User Registration</h2>
+
+<input type="text" placeholder="Full Name">
+
+<input type="email" placeholder="Email">
+
+<input type="text" placeholder="Phone">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Registered Successfully')">Register</button>
+
+</section>
+
+<section id="login">
+
+<h2>User Login</h2>
+
+<input type="text" placeholder="Username">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Login Successful')">Login</button>
+
+<h2>Admin Login</h2>
+
+<input type="text" placeholder="Admin Username">
+
+<input type="password" placeholder="Admin Password">
+
+<button onclick="alert('Admin Login Successful')">Login</button>
+
+</section>
+
+<section id="books">
+
+<h2>Search Book</h2>
+
+<input type="text" id="search" placeholder="Enter Book Name">
+
+<button onclick="searchBook()">Search</button>
+
+<p id="result"></p>
+
+<h2>Available Books</h2>
+
+<table>
+
+<tr>
+<th>Book ID</th>
+<th>Book Name</th>
+<th>Author</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>101</td>
+<td>Java Programming</td>
+<td>James Gosling</td>
+<td>Available</td>
+</tr>
+
+<tr>
+<td>102</td>
+<td>Python Basics</td>
+<td>Guido</td>
+<td>Available</td>
+</tr>
+
+<tr>
+<td>103</td>
+<td>HTML & CSS</td>
+<td>John Duckett</td>
+<td>Issued</td>
+</tr>
+
+<tr>
+<td>104</td>
+<td>Database Management</td>
+<td>Navathe</td>
+<td>Available</td>
+</tr>
+
+<tr>
+<td>105</td>
+<td>Data Structures</td>
+<td>Mark Allen</td>
+<td>Available</td>
+</tr>
+
+</table>
+
+</section>
+
+<section id="history">
+
+<h2>Borrow History</h2>
+
+<table>
+
+<tr>
+<th>Book</th>
+<th>Issue Date</th>
+<th>Expiry Date</th>
+</tr>
+
+<tr>
+<td>Java Programming</td>
+<td>01-08-2026</td>
+<td>10-08-2026</td>
+</tr>
+
+<tr>
+<td>HTML & CSS</td>
+<td>05-08-2026</td>
+<td>15-08-2026</td>
+</tr>
+
+</table>
+
+</section>
+
+<section id="fine">
+
+<h2>Fine Details</h2>
+
+<table>
+
+<tr>
+<th>Book</th>
+<th>Late Days</th>
+<th>Fine</th>
+</tr>
+
+<tr>
+<td>HTML & CSS</td>
+<td>3</td>
+<td>₹30</td>
+</tr>
+
+</table>
+
+</section>
+
+<section id="materials">
+
+<h2>Study Materials</h2>
+
+<table>
+
+<tr>
+<th>Year</th>
+<th>Semester</th>
+<th>Subject</th>
+<th>Download</th>
+</tr>
+
+<tr>
+<td>2</td>
+<td>4</td>
+<td>DBMS</td>
+<td><button>Download</button></td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>5</td>
+<td>Operating System</td>
+<td><button>Download</button></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>7</td>
+<td>Web Technology</td>
+<td><button>Download</button></td>
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>My Profile</h2>
+
+<p><b>Name:</b> Student</p>
+
+<p><b>Email:</b> student@gmail.com</p>
+
+<p><b>Department:</b> CSE</p>
+
+<p><b>Phone:</b> 9876543210</p>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email">
+
+<textarea rows="5" placeholder="Message"></textarea>
+
+<button onclick="alert('Message Sent Successfully')">Send</button>
+
+</section>
+
+<footer>
+
+<p>© 2026 Library Management System</p>
+
+</footer>
+
+<script>
+
+let books=[
+"Java Programming",
+"Python Basics",
+"HTML & CSS",
+"Database Management",
+"Data Structures"
+];
+
+function searchBook(){
+
+let value=document.getElementById("search").value.toLowerCase();
+
+let found=books.find(book=>book.toLowerCase().includes(value));
+
+if(found){
+document.getElementById("result").innerHTML="<b>Book Found:</b> "+found;
+}
+else{
+document.getElementById("result").innerHTML="<b>Book Not Found</b>";
+}
+
+}
+
+</script>
+
+</body>
+</html>

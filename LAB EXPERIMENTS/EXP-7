@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Beauty Parlour Appointment Booking</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f8f8f8;
+}
+header{
+background:#e91e63;
+color:white;
+text-align:center;
+padding:15px;
+}
+nav{
+background:#c2185b;
+padding:10px;
+text-align:center;
+}
+nav a{
+color:white;
+text-decoration:none;
+margin:15px;
+font-weight:bold;
+}
+section{
+width:80%;
+margin:20px auto;
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 5px gray;
+}
+input,select,textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+}
+button{
+background:#e91e63;
+color:white;
+padding:10px 20px;
+border:none;
+cursor:pointer;
+}
+button:hover{
+background:#ad1457;
+}
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+table,th,td{
+border:1px solid black;
+}
+th,td{
+padding:10px;
+text-align:center;
+}
+footer{
+background:#e91e63;
+color:white;
+text-align:center;
+padding:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Beauty Parlour Appointment Booking System</h1>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#register">Register</a>
+<a href="#login">Login</a>
+<a href="#services">Services</a>
+<a href="#booking">Book</a>
+<a href="#account">My Account</a>
+<a href="#admin">Admin</a>
+<a href="#feedback">Feedback</a>
+</nav>
+
+<section id="home">
+<h2>Welcome</h2>
+<p>Book beauty parlour appointments online with your preferred stylist and time.</p>
+</section>
+
+<section id="register">
+<h2>User Registration</h2>
+
+<input type="text" placeholder="Full Name">
+<input type="email" placeholder="Email">
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Registration Successful')">Register</button>
+
+</section>
+
+<section id="login">
+
+<h2>User Login</h2>
+
+<input type="text" placeholder="Username">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Login Successful')">Login</button>
+
+</section>
+
+<section id="services">
+
+<h2>Available Services</h2>
+
+<input type="text" id="searchService" placeholder="Search Service">
+
+<button onclick="searchService()">Search</button>
+
+<p id="result"></p>
+
+<table>
+
+<tr>
+<th>Service</th>
+<th>Stylist</th>
+<th>Price</th>
+</tr>
+
+<tr>
+<td>Hair Cut</td>
+<td>Priya</td>
+<td>₹300</td>
+</tr>
+
+<tr>
+<td>Facial</td>
+<td>Anjali</td>
+<td>₹800</td>
+</tr>
+
+<tr>
+<td>Bridal Makeup</td>
+<td>Meera</td>
+<td>₹5000</td>
+</tr>
+
+<tr>
+<td>Hair Spa</td>
+<td>Divya</td>
+<td>₹1200</td>
+</tr>
+
+</table>
+
+</section>
+
+<section id="booking">
+
+<h2>Book Appointment</h2>
+
+<input type="text" placeholder="Customer Name">
+
+<select>
+<option>Hair Cut</option>
+<option>Facial</option>
+<option>Hair Spa</option>
+<option>Bridal Makeup</option>
+</select>
+
+<select>
+<option>Priya</option>
+<option>Anjali</option>
+<option>Meera</option>
+<option>Divya</option>
+</select>
+
+<input type="date">
+
+<input type="time">
+
+<button onclick="alert('Appointment Booked Successfully')">
+Book Appointment
+</button>
+
+</section>
+
+<section>
+
+<h2>Online Payment</h2>
+
+<select>
+<option>Full Payment</option>
+<option>Advance Deposit</option>
+</select>
+
+<select>
+<option>PayPal</option>
+<option>Stripe</option>
+<option>Credit Card</option>
+</select>
+
+<input type="text" placeholder="Card Number">
+
+<button onclick="alert('Payment Successful')">
+Pay Now
+</button>
+
+</section>
+
+<section id="account">
+
+<h2>My Account</h2>
+
+<table>
+
+<tr>
+<th>Appointment</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Hair Spa</td>
+<td>20-08-2026</td>
+<td>Confirmed</td>
+</tr>
+
+</table>
+
+<button onclick="alert('Appointment Rescheduled')">
+Reschedule
+</button>
+
+<button onclick="alert('Appointment Cancelled')">
+Cancel Appointment
+</button>
+
+<h3>Reservation History</h3>
+
+<p>Previous appointments are displayed here.</p>
+
+</section>
+
+<section id="feedback">
+
+<h2>Customer Feedback</h2>
+
+<textarea placeholder="Write your feedback"></textarea>
+
+<button onclick="alert('Feedback Submitted')">
+Submit Feedback
+</button>
+
+</section>
+
+<section id="admin">
+
+<h2>Admin Login</h2>
+
+<input type="text" placeholder="Admin Username">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Admin Login Successful')">
+Login
+</button>
+
+<h2>Manage Reservations</h2>
+
+<button>Add Reservation</button>
+
+<button>Edit Reservation</button>
+
+<button>Cancel Reservation</button>
+
+<h2>Reservation Calendar</h2>
+
+<p>Available Time Slots: 10:00 AM - 7:00 PM</p>
+
+<h2>Customer Contact</h2>
+
+<button>Send SMS</button>
+
+<button>Call Customer</button>
+
+<h2>Manage Staff</h2>
+
+<input type="text" placeholder="Stylist Name">
+
+<input type="text" placeholder="Service">
+
+<button>Add Staff</button>
+
+</section>
+
+<footer>
+
+<p>© 2026 Beauty Parlour Appointment Booking System</p>
+
+</footer>
+
+<script>
+
+let services=[
+"Hair Cut",
+"Facial",
+"Hair Spa",
+"Bridal Makeup"
+];
+
+function searchService(){
+
+let value=document.getElementById("searchService").value.toLowerCase();
+
+let found=services.find(service=>service.toLowerCase().includes(value));
+
+if(found){
+document.getElementById("result").innerHTML="<b>Service Found:</b> "+found;
+}
+else{
+document.getElementById("result").innerHTML="<b>Service Not Found</b>";
+}
+
+}
+
+</script>
+
+</body>
+</html>

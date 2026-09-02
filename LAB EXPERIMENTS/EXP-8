@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hospital Appointment Booking System</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f2f2f2;
+}
+header{
+background:#2196F3;
+color:white;
+text-align:center;
+padding:15px;
+}
+nav{
+background:#1565C0;
+padding:10px;
+text-align:center;
+}
+nav a{
+color:white;
+text-decoration:none;
+margin:15px;
+font-weight:bold;
+}
+section{
+width:80%;
+margin:20px auto;
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 5px gray;
+}
+input,select,textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+}
+button{
+background:#2196F3;
+color:white;
+padding:10px 20px;
+border:none;
+cursor:pointer;
+}
+button:hover{
+background:#1565C0;
+}
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+table,th,td{
+border:1px solid black;
+}
+th,td{
+padding:10px;
+text-align:center;
+}
+footer{
+background:#2196F3;
+color:white;
+text-align:center;
+padding:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Hospital Appointment Booking System</h1>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#register">Register</a>
+<a href="#login">Login</a>
+<a href="#search">Search</a>
+<a href="#appointment">Appointment</a>
+<a href="#history">History</a>
+<a href="#hospital">Hospital</a>
+<a href="#admin">Admin</a>
+</nav>
+
+<section id="home">
+<h2>Welcome</h2>
+<p>Search hospitals, book appointments, manage appointments, and view medical history online.</p>
+</section>
+
+<section id="register">
+<h2>User Registration</h2>
+
+<input type="text" placeholder="Full Name">
+<input type="email" placeholder="Email">
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Registration Successful')">Register</button>
+</section>
+
+<section id="login">
+<h2>User Login</h2>
+
+<input type="text" placeholder="Username">
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Login Successful')">Login</button>
+</section>
+
+<section id="search">
+<h2>Search Hospital / Doctor</h2>
+
+<input type="text" id="searchDoctor" placeholder="Doctor Specialty or Location">
+
+<button onclick="searchDoctor()">Search</button>
+
+<p id="result"></p>
+
+<table>
+<tr>
+<th>Hospital</th>
+<th>Doctor</th>
+<th>Specialty</th>
+<th>Location</th>
+</tr>
+
+<tr>
+<td>MedCare Hospital</td>
+<td>Dr. Kumar</td>
+<td>Cardiology</td>
+<td>Chennai</td>
+</tr>
+
+<tr>
+<td>City Hospital</td>
+<td>Dr. Priya</td>
+<td>Dermatology</td>
+<td>Bangalore</td>
+</tr>
+
+<tr>
+<td>Apollo Clinic</td>
+<td>Dr. Rahul</td>
+<td>Orthopedics</td>
+<td>Hyderabad</td>
+</tr>
+
+</table>
+
+<button onclick="alert('Opening Google Map')">
+View Google Map
+</button>
+
+</section>
+
+<section id="appointment">
+
+<h2>Book Appointment</h2>
+
+<input type="text" placeholder="Patient Name">
+
+<select>
+<option>Dr. Kumar</option>
+<option>Dr. Priya</option>
+<option>Dr. Rahul</option>
+</select>
+
+<input type="date">
+
+<input type="time">
+
+<button onclick="alert('Appointment Booked Successfully')">
+Book Appointment
+</button>
+
+<h3>Check-in Form</h3>
+
+<textarea placeholder="Enter Symptoms"></textarea>
+
+<button onclick="alert('Check-in Submitted')">
+Submit Check-in
+</button>
+
+</section>
+
+<section>
+
+<h2>Appointment Status</h2>
+
+<table>
+
+<tr>
+<th>Doctor</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Dr. Kumar</td>
+<td>20-08-2026</td>
+<td>Confirmed</td>
+</tr>
+
+</table>
+
+<button onclick="alert('Appointment Rescheduled')">
+Reschedule
+</button>
+
+<button onclick="alert('Appointment Cancelled')">
+Cancel Appointment
+</button>
+
+</section>
+
+<section id="history">
+
+<h2>Past Appointments</h2>
+
+<table>
+
+<tr>
+<th>Date</th>
+<th>Doctor</th>
+<th>Department</th>
+</tr>
+
+<tr>
+<td>15-07-2026</td>
+<td>Dr. Priya</td>
+<td>Dermatology</td>
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Doctor Reviews</h2>
+
+<textarea placeholder="Write Your Review"></textarea>
+
+<button onclick="alert('Review Submitted')">
+Submit Review
+</button>
+
+</section>
+
+<section id="hospital">
+
+<h2>Hospital Registration</h2>
+
+<input type="text" placeholder="Hospital Name">
+
+<input type="text" placeholder="Location">
+
+<button onclick="alert('Hospital Registered')">
+Register Hospital
+</button>
+
+<h2>Hospital Login</h2>
+
+<input type="text" placeholder="Hospital Username">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Hospital Login Successful')">
+Login
+</button>
+
+<h2>Manage Hospital Details</h2>
+
+<button>Create Details</button>
+
+<button>Update Details</button>
+
+<button>Update Location</button>
+
+</section>
+
+<section id="admin">
+
+<h2>Admin Login</h2>
+
+<input type="text" placeholder="Admin Username">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Admin Login Successful')">
+Login
+</button>
+
+<h2>Admin Panel</h2>
+
+<button>Manage Doctors</button>
+
+<button>Manage Appointments</button>
+
+<button>Appointment Statistics</button>
+
+<button>Rating Details</button>
+
+</section>
+
+<footer>
+<p>© 2026 Hospital Appointment Booking System</p>
+</footer>
+
+<script>
+
+let doctors=[
+"Cardiology",
+"Dermatology",
+"Orthopedics"
+];
+
+function searchDoctor(){
+
+let value=document.getElementById("searchDoctor").value.toLowerCase();
+
+let found=doctors.find(d=>d.toLowerCase().includes(value));
+
+if(found){
+document.getElementById("result").innerHTML="<b>Doctor Available:</b> "+found;
+}
+else{
+document.getElementById("result").innerHTML="<b>No Doctor Found</b>";
+}
+
+}
+
+</script>
+
+</body>
+</html>

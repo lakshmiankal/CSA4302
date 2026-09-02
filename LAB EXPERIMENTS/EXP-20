@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>RentRide - Vehicle Rental System</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f4f6f8;
+}
+
+header{
+    background:#1565c0;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+nav{
+    background:#0d47a1;
+    padding:12px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+    font-weight:bold;
+}
+
+section{
+    width:85%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 5px gray;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    box-sizing:border-box;
+}
+
+textarea{
+    height:90px;
+}
+
+button{
+    background:#1565c0;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+    border-radius:4px;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+.vehicles{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.vehicle{
+    width:220px;
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+}
+
+.vehicle img{
+    width:200px;
+    height:130px;
+    object-fit:cover;
+}
+
+.card{
+    border:1px solid #ddd;
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+footer{
+    background:#1565c0;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🚗 RentRide</h1>
+
+<p>Online Vehicle Rental System</p>
+
+</header>
+
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#register">Register</a>
+
+<a href="#login">Login</a>
+
+<a href="#vehicles">Vehicles</a>
+
+<a href="#booking">Booking</a>
+
+<a href="#status">Status</a>
+
+<a href="#profile">Profile</a>
+
+<a href="#admin">Admin</a>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section id="home">
+
+<h2>Welcome to RentRide</h2>
+
+<p>
+RentRide allows customers to search, select and book
+cars, trucks and SUVs easily through an online platform.
+</p>
+
+<h3>Our Services</h3>
+
+<ul>
+
+<li>Search Vehicles</li>
+
+<li>Vehicle Rental</li>
+
+<li>Online Booking</li>
+
+<li>Booking Management</li>
+
+<li>Check-in Form</li>
+
+<li>Rental History</li>
+
+<li>Customer Reviews</li>
+
+<li>24/7 Customer Support</li>
+
+</ul>
+
+</section>
+
+
+<!-- USER REGISTER -->
+
+<section id="register">
+
+<h2>User Registration</h2>
+
+<input
+type="text"
+placeholder="Full Name"
+>
+
+<input
+type="text"
+placeholder="Customer Number"
+>
+
+<input
+type="email"
+placeholder="Email"
+>
+
+<input
+type="text"
+placeholder="Phone Number"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<textarea
+placeholder="Address"
+></textarea>
+
+<button onclick="registerUser()">
+
+Register
+
+</button>
+
+</section>
+
+
+<!-- LOGIN -->
+
+<section id="login">
+
+<h2>User Login</h2>
+
+<input
+type="text"
+placeholder="Username / Email"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="loginUser()">
+
+Login
+
+</button>
+
+<button onclick="alert('Logged Out Successfully')">
+
+Logout
+
+</button>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section id="vehicles">
+
+<h2>Search Vehicle</h2>
+
+<input
+type="text"
+id="location"
+placeholder="Enter Rental Location"
+>
+
+<select id="vehicleType">
+
+<option value="all">All Vehicles</option>
+
+<option value="car">Car</option>
+
+<option value="suv">SUV</option>
+
+<option value="truck">Truck</option>
+
+</select>
+
+<label>Rental Start Date</label>
+
+<input
+type="date"
+id="startDate"
+>
+
+<label>Rental End Date</label>
+
+<input
+type="date"
+id="endDate"
+>
+
+<button onclick="searchVehicle()">
+
+Search Vehicle
+
+</button>
+
+<p id="searchResult"></p>
+
+
+<h2>Available Vehicles</h2>
+
+<div class="vehicles">
+
+
+<div class="vehicle">
+
+<img
+src="https://via.placeholder.com/200x130"
+alt="Car"
+>
+
+<h3>Honda City</h3>
+
+<p>Type: Car</p>
+
+<p>Location: Chennai</p>
+
+<p>Price: ₹2000/day</p>
+
+<p>Available: Yes</p>
+
+<button onclick="selectVehicle('Honda City',2000)">
+
+Select Vehicle
+
+</button>
+
+</div>
+
+
+<div class="vehicle">
+
+<img
+src="https://via.placeholder.com/200x130"
+alt="SUV"
+>
+
+<h3>Hyundai Creta</h3>
+
+<p>Type: SUV</p>
+
+<p>Location: Chennai</p>
+
+<p>Price: ₹3000/day</p>
+
+<p>Available: Yes</p>
+
+<button onclick="selectVehicle('Hyundai Creta',3000)">
+
+Select Vehicle
+
+</button>
+
+</div>
+
+
+<div class="vehicle">
+
+<img
+src="https://via.placeholder.com/200x130"
+alt="Truck"
+>
+
+<h3>Tata Truck</h3>
+
+<p>Type: Truck</p>
+
+<p>Location: Chennai</p>
+
+<p>Price: ₹4000/day</p>
+
+<p>Available: Yes</p>
+
+<button onclick="selectVehicle('Tata Truck',4000)">
+
+Select Vehicle
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- VEHICLE DETAILS -->
+
+<section>
+
+<h2>Vehicle Details</h2>
+
+<div class="card">
+
+<h3>Honda City</h3>
+
+<p><b>Type:</b> Car</p>
+
+<p><b>Price:</b> ₹2000 per day</p>
+
+<p><b>Location:</b> Chennai</p>
+
+<p><b>Fuel:</b> Petrol</p>
+
+<p><b>Seats:</b> 5</p>
+
+<p><b>Availability:</b> Available</p>
+
+<button onclick="selectVehicle('Honda City',2000)">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section id="booking">
+
+<h2>Vehicle Booking</h2>
+
+<input
+type="text"
+id="customerName"
+placeholder="Customer Name"
+>
+
+<input
+type="text"
+id="customerNo"
+placeholder="Customer Number"
+>
+
+<textarea
+id="customerAddress"
+placeholder="Customer Address"
+></textarea>
+
+<input
+type="text"
+id="selectedVehicle"
+placeholder="Selected Vehicle"
+readonly
+>
+
+<input
+type="number"
+id="vehiclePrice"
+placeholder="Price per Day"
+readonly
+>
+
+<label>Rental Start Date</label>
+
+<input
+type="date"
+id="bookStart"
+>
+
+<label>Rental End Date</label>
+
+<input
+type="date"
+id="bookEnd"
+>
+
+<select id="bookingType">
+
+<option>Car</option>
+
+<option>SUV</option>
+
+<option>Truck</option>
+
+</select>
+
+<button onclick="makeBooking()">
+
+Make Booking
+
+</button>
+
+<p id="bookingMessage"></p>
+
+</section>
+
+
+<!-- CHECK IN -->
+
+<section>
+
+<h2>Check-in Form</h2>
+
+<input
+type="text"
+placeholder="Booking ID"
+>
+
+<input
+type="text"
+placeholder="Customer Name"
+>
+
+<input
+type="text"
+placeholder="Driving License Number"
+>
+
+<input
+type="text"
+placeholder="Vehicle Number"
+>
+
+<label>Check-in Date</label>
+
+<input type="date">
+
+<button onclick="alert('Check-in Form Submitted Successfully')">
+
+Submit Check-in
+
+</button>
+
+</section>
+
+
+<!-- BOOKING STATUS -->
+
+<section id="status">
+
+<h2>Booking Status</h2>
+
+<table>
+
+<tr>
+
+<th>Booking ID</th>
+
+<th>Customer</th>
+
+<th>Vehicle</th>
+
+<th>Start Date</th>
+
+<th>End Date</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>RR1001</td>
+
+<td>Rahul</td>
+
+<td>Honda City</td>
+
+<td>2026-08-10</td>
+
+<td>2026-08-12</td>
+
+<td>Approved</td>
+
+</tr>
+
+<tr>
+
+<td>RR1002</td>
+
+<td>Priya</td>
+
+<td>Hyundai Creta</td>
+
+<td>2026-08-15</td>
+
+<td>2026-08-18</td>
+
+<td>Pending</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- PAST APPOINTMENT / RENTAL HISTORY -->
+
+<section>
+
+<h2>Past Rental History</h2>
+
+<table>
+
+<tr>
+
+<th>Booking ID</th>
+
+<th>Vehicle</th>
+
+<th>Rental Period</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>RR0901</td>
+
+<td>Honda City</td>
+
+<td>3 Days</td>
+
+<td>Completed</td>
+
+</tr>
+
+<tr>
+
+<td>RR0902</td>
+
+<td>Tata Truck</td>
+
+<td>2 Days</td>
+
+<td>Completed</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section>
+
+<h2>Customer Reviews</h2>
+
+<div class="card">
+
+<h3>Rahul</h3>
+
+<p>⭐⭐⭐⭐⭐</p>
+
+<p>Excellent vehicle and very good service.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Priya</h3>
+
+<p>⭐⭐⭐⭐</p>
+
+<p>Easy booking process and clean vehicle.</p>
+
+</div>
+
+
+<h3>Write a Review</h3>
+
+<input
+type="text"
+placeholder="Your Name"
+>
+
+<select>
+
+<option>★★★★★</option>
+
+<option>★★★★</option>
+
+<option>★★★</option>
+
+<option>★★</option>
+
+<option>★</option>
+
+</select>
+
+<textarea
+placeholder="Write your review"
+></textarea>
+
+<button onclick="alert('Review Submitted Successfully')">
+
+Submit Review
+
+</button>
+
+</section>
+
+
+<!-- CUSTOMER SUPPORT -->
+
+<section>
+
+<h2>24/7 Customer Support</h2>
+
+<input
+type="text"
+placeholder="Customer Name"
+>
+
+<input
+type="text"
+placeholder="Phone Number"
+>
+
+<textarea
+placeholder="Describe your rental issue"
+></textarea>
+
+<button onclick="alert('Support Request Submitted')">
+
+Contact Support
+
+</button>
+
+</section>
+
+
+<!-- USER PROFILE -->
+
+<section id="profile">
+
+<h2>My Profile</h2>
+
+<input
+type="text"
+value="Customer Name"
+>
+
+<input
+type="text"
+value="Customer Number"
+>
+
+<input
+type="email"
+value="customer@gmail.com"
+>
+
+<input
+type="text"
+value="9876543210"
+>
+
+<textarea>Chennai</textarea>
+
+<button onclick="alert('Profile Updated Successfully')">
+
+Update Profile
+
+</button>
+
+</section>
+
+
+<!-- ADMIN -->
+
+<section id="admin">
+
+<h2>Admin Panel</h2>
+
+
+<h3>Admin Login</h3>
+
+<input
+type="text"
+placeholder="Admin Username"
+>
+
+<input
+type="password"
+placeholder="Admin Password"
+>
+
+<button onclick="alert('Admin Login Successful')">
+
+Login
+
+</button>
+
+
+<h3>Add Vehicle</h3>
+
+<input
+type="text"
+placeholder="Vehicle Name"
+>
+
+<select>
+
+<option>Car</option>
+
+<option>SUV</option>
+
+<option>Truck</option>
+
+</select>
+
+<input
+type="number"
+placeholder="Vehicle Price per Day"
+>
+
+<input
+type="text"
+placeholder="Vehicle Location"
+>
+
+<input
+type="text"
+placeholder="Vehicle Number"
+>
+
+<input
+type="file"
+accept="image/*"
+>
+
+<textarea
+placeholder="Vehicle Description"
+></textarea>
+
+<button onclick="alert('Vehicle Added Successfully')">
+
+Add Vehicle
+
+</button>
+
+
+<h3>Manage Vehicle Details</h3>
+
+<table>
+
+<tr>
+
+<th>Vehicle</th>
+
+<th>Type</th>
+
+<th>Price</th>
+
+<th>Location</th>
+
+<th>Action</th>
+
+</tr>
+
+<tr>
+
+<td>Honda City</td>
+
+<td>Car</td>
+
+<td>₹2000</td>
+
+<td>Chennai</td>
+
+<td>
+
+<button onclick="alert('Vehicle Updated')">
+
+Update
+
+</button>
+
+<button onclick="alert('Vehicle Deleted')">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Hyundai Creta</td>
+
+<td>SUV</td>
+
+<td>₹3000</td>
+
+<td>Chennai</td>
+
+<td>
+
+<button onclick="alert('Vehicle Updated')">
+
+Update
+
+</button>
+
+<button onclick="alert('Vehicle Deleted')">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+</table>
+
+
+<h3>Manage Booking Details</h3>
+
+<table>
+
+<tr>
+
+<th>Booking ID</th>
+
+<th>Customer</th>
+
+<th>Vehicle</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+<tr>
+
+<td>RR1001</td>
+
+<td>Rahul</td>
+
+<td>Honda City</td>
+
+<td>Pending</td>
+
+<td>
+
+<button onclick="alert('Booking Approved')">
+
+Approve
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>RR1002</td>
+
+<td>Priya</td>
+
+<td>Hyundai Creta</td>
+
+<td>Pending</td>
+
+<td>
+
+<button onclick="alert('Booking Approved')">
+
+Approve
+
+</button>
+
+</td>
+
+</tr>
+
+</table>
+
+
+<h3>Admin Profile</h3>
+
+<input
+type="text"
+value="Admin"
+>
+
+<input
+type="email"
+value="admin@rentrider.com"
+>
+
+<button onclick="alert('Admin Profile Updated')">
+
+Update Profile
+
+</button>
+
+
+<button onclick="alert('Admin Logged Out')">
+
+Logout
+
+</button>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 RentRide - Online Vehicle Rental System
+</p>
+
+</footer>
+
+
+<script>
+
+
+let selectedVehicle="";
+let selectedPrice=0;
+
+
+function registerUser(){
+
+alert("User Registered Successfully");
+
+}
+
+
+function loginUser(){
+
+alert("User Login Successful");
+
+}
+
+
+function searchVehicle(){
+
+let type=
+document.getElementById("vehicleType").value;
+
+let location=
+document.getElementById("location").value;
+
+document.getElementById("searchResult").innerHTML=
+"<b>Search Completed!</b><br>"+
+"Vehicle Type: "+type+
+"<br>Location: "+location+
+"<br>Available vehicles are displayed below.";
+
+}
+
+
+function selectVehicle(name,price){
+
+selectedVehicle=name;
+
+selectedPrice=price;
+
+document.getElementById("selectedVehicle").value=name;
+
+document.getElementById("vehiclePrice").value=price;
+
+document.getElementById("booking").scrollIntoView();
+
+}
+
+
+function makeBooking(){
+
+let name=
+document.getElementById("customerName").value;
+
+let customerNo=
+document.getElementById("customerNo").value;
+
+let address=
+document.getElementById("customerAddress").value;
+
+let vehicle=
+document.getElementById("selectedVehicle").value;
+
+if(name=="" ||
+customerNo=="" ||
+address=="" ||
+vehicle==""){
+
+alert(
+"Please fill all booking details"
+);
+
+return;
+
+}
+
+document.getElementById("bookingMessage").innerHTML=
+"<b>Booking Submitted Successfully!</b><br>"+
+"Booking ID: RR1003<br>"+
+"Vehicle: "+vehicle+
+"<br>Status: Pending Approval";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Finder - Real Estate Portal</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f2f2f2;
+}
+
+header{
+background:#2E8B57;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+nav{
+background:#1f6b42;
+padding:10px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:15px;
+font-weight:bold;
+}
+
+section{
+width:85%;
+margin:20px auto;
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 5px gray;
+}
+
+input,select,textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+}
+
+button{
+background:#2E8B57;
+color:white;
+padding:10px 20px;
+border:none;
+cursor:pointer;
+}
+
+button:hover{
+background:#1f6b42;
+}
+
+.property{
+border:1px solid #ddd;
+padding:15px;
+margin:10px;
+border-radius:5px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+table,th,td{
+border:1px solid black;
+}
+
+th,td{
+padding:10px;
+text-align:center;
+}
+
+footer{
+background:#2E8B57;
+color:white;
+text-align:center;
+padding:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Home Finder</h1>
+<p>Find Your Dream Home Easily</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#register">Register</a>
+<a href="#login">Login</a>
+<a href="#search">Search Property</a>
+<a href="#favorites">Favorites</a>
+<a href="#agent">Agents</a>
+<a href="#admin">Admin</a>
+</nav>
+
+<section id="home">
+
+<h2>Property Categories</h2>
+
+<ul>
+<li>Independent House</li>
+<li>Apartment</li>
+<li>Villa</li>
+<li>Commercial Property</li>
+<li>Land / Plot</li>
+</ul>
+
+<h2>Advertisements</h2>
+
+<p>Special Property Deals Available!</p>
+
+<button onclick="alert('Redirecting to Property Partner Website')">
+View Advertisement
+</button>
+
+</section>
+
+<section id="register">
+
+<h2>Buyer Registration</h2>
+
+<input type="text" placeholder="Full Name">
+
+<input type="email" placeholder="Email">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Registration Successful')">
+Register
+</button>
+
+</section>
+
+<section id="login">
+
+<h2>Buyer Login</h2>
+
+<input type="text" placeholder="Username">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Login Successful')">
+Login
+</button>
+
+</section>
+
+<section id="search">
+
+<h2>Search Property</h2>
+
+<input type="text" id="searchBox"
+placeholder="Enter Location">
+
+<select>
+<option>House</option>
+<option>Apartment</option>
+<option>Villa</option>
+<option>Land</option>
+</select>
+
+<select>
+<option>Below ₹10 Lakhs</option>
+<option>₹10 - ₹50 Lakhs</option>
+<option>Above ₹50 Lakhs</option>
+</select>
+
+<button onclick="searchProperty()">
+Search
+</button>
+
+<p id="result"></p>
+
+</section>
+
+<section>
+
+<h2>Property Listings</h2>
+
+<div class="property">
+<h3>2BHK Apartment</h3>
+<p>Location: Chennai</p>
+<p>Price: ₹35 Lakhs</p>
+<p>Swimming Pool, Parking</p>
+<button onclick="alert('Property Added to Favorites')">
+Save Property
+</button>
+</div>
+
+<div class="property">
+<h3>Independent House</h3>
+<p>Location: Hyderabad</p>
+<p>Price: ₹55 Lakhs</p>
+<p>Garden, Parking</p>
+<button onclick="alert('Property Added to Favorites')">
+Save Property
+</button>
+</div>
+
+<div class="property">
+<h3>Residential Plot</h3>
+<p>Location: Bangalore</p>
+<p>Price: ₹20 Lakhs</p>
+<p>Near Highway</p>
+<button onclick="alert('Property Added to Favorites')">
+Save Property
+</button>
+</div>
+
+</section>
+
+<section>
+
+<h2>Property Details</h2>
+
+<p><b>Property:</b> 2BHK Apartment</p>
+
+<p><b>Area:</b> 1200 Sq.ft</p>
+
+<p><b>Price:</b> ₹35 Lakhs</p>
+
+<p><b>Amenities:</b> Parking, Lift, Security</p>
+
+<button onclick="alert('Virtual Tour Opened')">
+Virtual Tour
+</button>
+
+</section>
+
+<section>
+
+<h2>Google Map</h2>
+
+<button onclick="alert('Google Map Opened')">
+View Property Location
+</button>
+
+</section>
+
+<section id="favorites">
+
+<h2>Favorite Properties</h2>
+
+<p>Your saved properties will appear here.</p>
+
+</section>
+
+<section>
+
+<h2>Schedule Property Visit</h2>
+
+<input type="date">
+
+<input type="time">
+
+<button onclick="alert('Visit Scheduled Successfully')">
+Schedule Visit
+</button>
+
+</section>
+
+<section>
+
+<h2>Mortgage Calculator</h2>
+
+<input type="number" placeholder="Property Amount">
+
+<button onclick="alert('Estimated EMI Calculated')">
+Calculate EMI
+</button>
+
+</section>
+
+<section id="agent">
+
+<h2>Search Agent / Company</h2>
+
+<input type="text" placeholder="Agent Name">
+
+<button onclick="alert('Agent Found')">
+Search Agent
+</button>
+
+<table>
+
+<tr>
+<th>Agent</th>
+<th>Company</th>
+<th>Contact</th>
+</tr>
+
+<tr>
+<td>Ramesh</td>
+<td>ABC Realty</td>
+<td>9876543210</td>
+</tr>
+
+<tr>
+<td>Priya</td>
+<td>XYZ Properties</td>
+<td>9876501234</td>
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Contact Agent</h2>
+
+<textarea placeholder="Send Message"></textarea>
+
+<button onclick="alert('Message Sent Successfully')">
+Send
+</button>
+
+</section>
+
+<section id="admin">
+
+<h2>Admin Login</h2>
+
+<input type="text" placeholder="Admin Username">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Admin Login Successful')">
+Login
+</button>
+
+<h2>Manage Properties</h2>
+
+<button>Add Property</button>
+
+<button>Update Property</button>
+
+<button>Delete Property</button>
+
+<h2>Website Visitors</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+</tr>
+
+<tr>
+<td>Rahul</td>
+<td>rahul@gmail.com</td>
+</tr>
+
+<tr>
+<td>Priya</td>
+<td>priya@gmail.com</td>
+</tr>
+
+</table>
+
+</section>
+
+<footer>
+<p>© 2026 Home Finder Real Estate Portal</p>
+</footer>
+
+<script>
+
+let locations=[
+"chennai",
+"hyderabad",
+"bangalore"
+];
+
+function searchProperty(){
+
+let value=document.getElementById("searchBox")
+.value.toLowerCase();
+
+let found=locations.find(
+location=>location.includes(value)
+);
+
+if(found){
+document.getElementById("result").innerHTML=
+"<b>Properties Available in:</b> "+found;
+}
+else{
+document.getElementById("result").innerHTML=
+"<b>No Property Found</b>";
+}
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>ComplainEase - Complaint Management System</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f4f7fb;
+}
+
+header{
+    background:#1565c0;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+nav{
+    background:#0d47a1;
+    padding:12px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:12px;
+    font-weight:bold;
+}
+
+section{
+    width:85%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 5px gray;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    box-sizing:border-box;
+}
+
+textarea{
+    height:100px;
+}
+
+button{
+    background:#1565c0;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+.complaint{
+    border:1px solid #ddd;
+    padding:15px;
+    margin:10px 0;
+    border-radius:6px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+.status{
+    color:#1565c0;
+    font-weight:bold;
+}
+
+footer{
+    background:#1565c0;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>📢 ComplainEase</h1>
+
+<p>Online Complaint Registration and Management System</p>
+
+</header>
+
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#register">Register</a>
+
+<a href="#login">Login</a>
+
+<a href="#complaint">Complaint</a>
+
+<a href="#status">Status</a>
+
+<a href="#officer">Officer</a>
+
+<a href="#admin">Admin</a>
+
+<a href="#feedback">Feedback</a>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section id="home">
+
+<h2>Welcome to ComplainEase</h2>
+
+<p>
+ComplainEase helps users register complaints,
+track complaint status and communicate with officers.
+</p>
+
+<h3>Common Complaint Categories</h3>
+
+<ul>
+
+<li>Road Problems</li>
+
+<li>Water Problems</li>
+
+<li>Electricity Problems</li>
+
+<li>Sanitation</li>
+
+<li>Public Transport</li>
+
+<li>Other Issues</li>
+
+</ul>
+
+</section>
+
+
+<!-- USER REGISTER -->
+
+<section id="register">
+
+<h2>User Registration</h2>
+
+<input
+type="text"
+placeholder="Full Name"
+>
+
+<input
+type="email"
+placeholder="Email"
+>
+
+<input
+type="text"
+placeholder="Mobile Number"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('User Registered Successfully')">
+
+Register
+
+</button>
+
+</section>
+
+
+<!-- USER LOGIN -->
+
+<section id="login">
+
+<h2>User Login</h2>
+
+<input
+type="text"
+placeholder="Username"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('User Login Successful')">
+
+Login
+
+</button>
+
+<button onclick="alert('User Logged Out')">
+
+Logout
+
+</button>
+
+</section>
+
+
+<!-- POST COMPLAINT -->
+
+<section id="complaint">
+
+<h2>Post Complaint</h2>
+
+<input
+type="text"
+id="complaintTitle"
+placeholder="Complaint Title"
+>
+
+
+<select id="category">
+
+<option>Road Problem</option>
+
+<option>Water Problem</option>
+
+<option>Electricity Problem</option>
+
+<option>Sanitation</option>
+
+<option>Public Transport</option>
+
+<option>Other</option>
+
+</select>
+
+
+<textarea
+id="description"
+placeholder="Describe your complaint"
+></textarea>
+
+
+<input
+type="text"
+placeholder="Your Location"
+>
+
+
+<label>Upload Supporting Document / Proof:</label>
+
+<input type="file">
+
+
+<h3>Mark Location on Google Map</h3>
+
+<input
+type="text"
+placeholder="Enter Location"
+>
+
+<button onclick="openMap()">
+
+Open Google Map
+
+</button>
+
+
+<button onclick="postComplaint()">
+
+Submit Complaint
+
+</button>
+
+</section>
+
+
+<!-- SEARCH COMMON ISSUES -->
+
+<section>
+
+<h2>Search Common Issues and Solutions</h2>
+
+<input
+type="text"
+id="issue"
+placeholder="Search your issue"
+>
+
+<button onclick="searchIssue()">
+
+Search
+
+</button>
+
+<p id="solution"></p>
+
+</section>
+
+
+<!-- COMPLAINT STATUS -->
+
+<section id="status">
+
+<h2>View Complaint Status</h2>
+
+<input
+type="text"
+id="complaintID"
+placeholder="Enter Complaint ID"
+>
+
+<button onclick="checkStatus()">
+
+Check Status
+
+</button>
+
+<p id="statusResult"></p>
+
+
+<h3>My Complaint History</h3>
+
+<table>
+
+<tr>
+
+<th>Complaint ID</th>
+
+<th>Complaint</th>
+
+<th>Date</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>CP1001</td>
+
+<td>Road Damage</td>
+
+<td>09-08-2026</td>
+
+<td class="status">In Progress</td>
+
+</tr>
+
+<tr>
+
+<td>CP1002</td>
+
+<td>Water Problem</td>
+
+<td>05-08-2026</td>
+
+<td class="status">Resolved</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- ADDITIONAL INFORMATION -->
+
+<section>
+
+<h2>Provide Additional Evidence</h2>
+
+<input
+type="text"
+placeholder="Complaint ID"
+>
+
+<textarea
+placeholder="Additional Information"
+></textarea>
+
+<input type="file">
+
+<button onclick="alert('Additional Evidence Submitted')">
+
+Submit Evidence
+
+</button>
+
+</section>
+
+
+<!-- FEEDBACK -->
+
+<section id="feedback">
+
+<h2>Complaint Feedback</h2>
+
+<input
+type="text"
+placeholder="Complaint ID"
+>
+
+<select>
+
+<option>★★★★★ Excellent</option>
+
+<option>★★★★ Good</option>
+
+<option>★★★ Average</option>
+
+<option>★★ Poor</option>
+
+<option>★ Very Poor</option>
+
+</select>
+
+<textarea
+placeholder="Write your feedback"
+></textarea>
+
+<button onclick="alert('Feedback Submitted Successfully')">
+
+Submit Feedback
+
+</button>
+
+</section>
+
+
+<!-- ADMIN CONTACT -->
+
+<section>
+
+<h2>Admin Contact Details</h2>
+
+<p><b>Admin:</b> System Administrator</p>
+
+<p><b>Email:</b> admin@complainease.com</p>
+
+<p><b>Phone:</b> 9876543210</p>
+
+<button onclick="alert('Admin Contact Details Displayed')">
+
+Contact Admin
+
+</button>
+
+</section>
+
+
+<!-- OFFICER -->
+
+<section id="officer">
+
+<h2>Officer Registration</h2>
+
+<input
+type="text"
+placeholder="Officer Name"
+>
+
+<input
+type="email"
+placeholder="Officer Email"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Officer Registration Submitted')">
+
+Register Officer
+
+</button>
+
+
+<h2>Officer Login</h2>
+
+<input
+type="text"
+placeholder="Officer ID"
+>
+
+<input
+type="password"
+placeholder="Password"
+>
+
+<button onclick="alert('Officer Login Successful')">
+
+Login
+
+</button>
+
+
+<h2>View Complaints</h2>
+
+<div class="complaint">
+
+<h3>CP1001 - Road Damage</h3>
+
+<p>Location: Chennai</p>
+
+<p>Category: Road Problem</p>
+
+<p>Status: In Progress</p>
+
+<button onclick="alert('Complaint Details Opened')">
+
+View Complaint
+
+</button>
+
+</div>
+
+
+<h2>Update Complaint Status</h2>
+
+<input
+type="text"
+placeholder="Complaint ID"
+>
+
+<select>
+
+<option>Pending</option>
+
+<option>In Progress</option>
+
+<option>Resolved</option>
+
+<option>Rejected</option>
+
+</select>
+
+<button onclick="alert('Complaint Status Updated')">
+
+Update Status
+
+</button>
+
+
+<h2>Update Proof of Work</h2>
+
+<input
+type="text"
+placeholder="Complaint ID"
+>
+
+<input type="file">
+
+<textarea
+placeholder="Work Completion Details"
+></textarea>
+
+<button onclick="alert('Proof of Work Updated')">
+
+Upload Proof
+
+</button>
+
+</section>
+
+
+<!-- ADMIN -->
+
+<section id="admin">
+
+<h2>Administrator Login</h2>
+
+<input
+type="text"
+placeholder="Admin Username"
+>
+
+<input
+type="password"
+placeholder="Admin Password"
+>
+
+<button onclick="alert('Admin Login Successful')">
+
+Login
+
+</button>
+
+
+<h2>Generate Officer ID & Password</h2>
+
+<input
+type="text"
+placeholder="Officer Name"
+>
+
+<button onclick="generateOfficer()">
+
+Generate Credentials
+
+</button>
+
+<p id="credentials"></p>
+
+
+<h2>Manage Accounts</h2>
+
+<button onclick="alert('Account Created')">
+
+Create Account
+
+</button>
+
+<button onclick="alert('Account Deleted')">
+
+Delete Account
+
+</button>
+
+<button onclick="alert('Account List Opened')">
+
+View Accounts
+
+</button>
+
+
+<h2>Change Password</h2>
+
+<input
+type="password"
+placeholder="New Password"
+>
+
+<button onclick="alert('Password Changed Successfully')">
+
+Change Password
+
+</button>
+
+
+<h2>Hide / Show Features</h2>
+
+<select>
+
+<option>Complaint Module</option>
+
+<option>Feedback Module</option>
+
+<option>Location Module</option>
+
+<option>Officer Module</option>
+
+</select>
+
+<button onclick="alert('Feature Visibility Updated')">
+
+Update Feature
+
+</button>
+
+
+<h2>Manage Officer Accounts</h2>
+
+<table>
+
+<tr>
+
+<th>Officer ID</th>
+
+<th>Name</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>OFF1001</td>
+
+<td>Ramesh</td>
+
+<td>Active</td>
+
+</tr>
+
+<tr>
+
+<td>OFF1002</td>
+
+<td>Priya</td>
+
+<td>Active</td>
+
+</tr>
+
+</table>
+
+
+<h2>Available OES Information</h2>
+
+<textarea
+placeholder="Enter information for the Online Enforcement System"
+></textarea>
+
+<button onclick="alert('Information Inserted Successfully')">
+
+Insert Information
+
+</button>
+
+</section>
+
+
+<!-- COMPLAINT DASHBOARD -->
+
+<section>
+
+<h2>Complaint Dashboard</h2>
+
+<table>
+
+<tr>
+
+<th>Total Complaints</th>
+
+<th>Pending</th>
+
+<th>In Progress</th>
+
+<th>Resolved</th>
+
+</tr>
+
+<tr>
+
+<td>25</td>
+
+<td>5</td>
+
+<td>8</td>
+
+<td>12</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 ComplainEase Complaint Management System
+</p>
+
+</footer>
+
+
+<script>
+
+
+function postComplaint(){
+
+let title=
+document.getElementById("complaintTitle").value;
+
+if(title!=""){
+
+alert(
+"Complaint Submitted Successfully\n"+
+"Complaint ID: CP1003"
+);
+
+}
+
+else{
+
+alert("Please enter complaint title");
+
+}
+
+}
+
+
+function openMap(){
+
+window.open(
+"https://www.google.com/maps",
+"_blank"
+);
+
+}
+
+
+function checkStatus(){
+
+let id=
+document.getElementById("complaintID").value;
+
+if(id=="CP1001"){
+
+document.getElementById("statusResult").innerHTML=
+"<b>Status:</b> In Progress";
+
+}
+
+else if(id=="CP1002"){
+
+document.getElementById("statusResult").innerHTML=
+"<b>Status:</b> Resolved";
+
+}
+
+else{
+
+document.getElementById("statusResult").innerHTML=
+"<b>Complaint not found</b>";
+
+}
+
+}
+
+
+function searchIssue(){
+
+let issue=
+document.getElementById("issue").value.toLowerCase();
+
+let solution="";
+
+if(issue.includes("road")){
+
+solution=
+"Road complaint: Contact the road maintenance department.";
+
+}
+
+else if(issue.includes("water")){
+
+solution=
+"Water complaint: Contact the local water department.";
+
+}
+
+else if(issue.includes("electricity")){
+
+solution=
+"Electricity complaint: Contact the electricity department.";
+
+}
+
+else{
+
+solution=
+"No common solution found. Please register a complaint.";
+
+}
+
+document.getElementById("solution").innerHTML=
+solution;
+
+}
+
+
+function generateOfficer(){
+
+document.getElementById("credentials").innerHTML=
+"<b>Officer ID:</b> OFF1003<br>"+
+"<b>Password:</b> OFF@1234";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
